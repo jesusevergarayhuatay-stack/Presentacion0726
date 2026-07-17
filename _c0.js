@@ -43,12 +43,11 @@ function countUp(el,to,ms,suf){if(!el)return;let n=0;const step=Math.max(1,Math.
 /* ===== panorama ===== */
 const prowsEl=document.getElementById('prows');
 function renderPanorama(list){
-  const maxRecs=Math.max(1,...list.map(recSum));
   prowsEl.innerHTML=list.map((d)=>{
     const ok=okRecs(d),no=noRecs(d),v=recSum(d);const i=DOCS.indexOf(d);
-    const tip=`<div class="tt">${d.short} · ${d.tipo}</div><div class="tk"><span class="ok">Acogidas</span><b class="ok">${ok}</b></div><div class="tk"><span class="no">No acogidas</span><b class="no">${no}</b></div><div class="tk"><span class="tot">Total</span><b class="tot">${v}</b></div>`;
-    return `<div class="prow" data-i="${i}" data-tip="${encodeURIComponent(tip)}"><span class="pl">${d.short}</span><div class="ptrack">
-      <span class="seg ok" data-w="${ok/maxRecs*100}"></span><span class="seg no" data-w="${no/maxRecs*100}"></span></div><span class="pv">${v}</span></div>`;
+    const pct=v?Math.round(ok/v*100):0;
+    const tip=`<div class="tt">${d.short} · ${d.tipo}</div><div class="tk"><span class="ok">Acogidas</span><b class="ok">${ok} · ${pct}%</b></div><div class="tk"><span class="no">No acogidas</span><b class="no">${no}</b></div><div class="tk"><span class="tot">Total</span><b class="tot">${v}</b></div>`;
+    return `<div class="prow" data-i="${i}" data-tip="${encodeURIComponent(tip)}"><span class="pl">${d.short}</span><div class="ptrack"><span class="seg ok" data-w="${pct}"></span></div><span class="pv">${v}</span></div>`;
   }).join('');
   requestAnimationFrame(()=>prowsEl.querySelectorAll('.seg').forEach(s=>s.style.width=parseFloat(s.dataset.w)+'%'));
 }

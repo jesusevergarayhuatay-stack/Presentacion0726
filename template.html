@@ -110,8 +110,8 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#eef2f
 .fbtn:hover{color:var(--ink);transform:translateY(-2px)}
 .fbtn.active{background:linear-gradient(120deg,var(--blue),var(--blue-d));color:#fff;border-color:transparent}
 
-.mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;grid-auto-rows:minmax(172px,1fr)}
-.tile{transform-style:preserve-3d;position:relative;grid-column:span 6;border:1px solid var(--gbrd);border-radius:26px;background:var(--glass);backdrop-filter:blur(18px) saturate(150%);box-shadow:var(--sh);padding:28px 30px;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s,opacity .4s;will-change:transform}
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;grid-auto-rows:minmax(120px,auto)}
+.tile{transform-style:preserve-3d;position:relative;grid-column:span 6;border:1px solid var(--gbrd);border-radius:26px;background:var(--glass);backdrop-filter:blur(18px) saturate(150%);box-shadow:var(--sh);padding:20px 22px;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s,opacity .4s;will-change:transform}
 .tile.feat{grid-column:span 12;min-height:230px}
 .tile.wide{grid-column:span 12}
 .tile::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.6),transparent 40%);z-index:4}
@@ -119,7 +119,7 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#eef2f
 .tile:hover{box-shadow:var(--sh2);border-color:#cfe0f4}
 .tile.hiding{opacity:0;transform:scale(.92)!important}
 .tile.hidden{display:none}
-.tile .ghost{position:absolute;right:-4px;top:-30px;font-family:'Space Grotesk';font-weight:700;font-size:132px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(10,86,168,.10);pointer-events:none;transition:.4s;transform:translateZ(10px)}
+.tile .ghost{position:absolute;right:-2px;top:-20px;font-family:'Space Grotesk';font-weight:700;font-size:100px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(10,86,168,.10);pointer-events:none;transition:.4s;transform:translateZ(10px)}
 .tile.feat .ghost{font-size:190px;top:-40px}
 .tile:hover .ghost{-webkit-text-stroke-color:rgba(10,86,168,.20)}
 .tile .accent{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--blue),var(--red));transform:scaleY(0);transform-origin:top;transition:.45s;z-index:2}
@@ -131,7 +131,7 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#eef2f
 .tile .tlabel{font-family:'Space Grotesk';font-size:12.5px;font-weight:600;color:var(--blue);letter-spacing:.4px;position:relative;z-index:2;transform:translateZ(45px)}
 .tile .ttitle{font-family:'Sora';font-weight:700;font-size:17.5px;line-height:1.32;margin-top:10px;position:relative;z-index:2;max-width:88%;transform:translateZ(30px)}
 .tile.feat .ttitle{font-size:25px;line-height:1.24;margin-top:12px;max-width:74%}
-.tile .tmeta{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;position:relative;z-index:2;transform:translateZ(24px)}
+.tile .tmeta{margin-top:14px;padding-top:0;display:flex;align-items:center;gap:9px;flex-wrap:wrap;position:relative;z-index:2;transform:translateZ(24px)}
 .tchip{font-size:11px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.55);border:1px solid var(--line);color:var(--mut);font-weight:500}
 .tchip.b{background:var(--blue-l);border-color:#cfe0f4;color:var(--blue);font-weight:600}
 .tile .tgo{position:relative;z-index:2;margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--red);opacity:0;transform:translateX(-8px) translateZ(40px);transition:.35s}
@@ -140,9 +140,13 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#eef2f
 
 .scrim{position:fixed;inset:0;z-index:39;background:rgba(9,16,32,.55);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:.45s}
 .scrim.open{opacity:1;pointer-events:auto}
-.off{position:fixed;top:0;right:0;height:100vh;width:min(760px,96vw);z-index:41;background:var(--glass-2);backdrop-filter:blur(24px) saturate(150%);border-left:1px solid var(--gbrd);box-shadow:-34px 0 90px rgba(9,16,32,.34);transform:translateX(102%);transition:transform .55s cubic-bezier(.3,.85,.2,1);overflow-y:auto}
-.off.open{transform:none}
-.offtop{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;padding:16px 26px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.72);backdrop-filter:blur(16px)}
+.off{position:fixed;top:50%;left:50%;transform:translate(-50%,-46%) scale(.97);width:min(1200px,93vw);height:88vh;z-index:41;background:var(--glass-2);backdrop-filter:blur(24px) saturate(150%);border:1px solid var(--gbrd);border-radius:24px;box-shadow:0 40px 120px rgba(9,16,32,.5);overflow:hidden;opacity:0;pointer-events:none;transition:.42s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.off.open{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:auto}
+.off #offInner{display:flex;flex-direction:column;height:100%;min-height:0;width:100%}
+.dgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:22px;align-items:start}
+.dcol{min-width:0}
+@media(max-width:900px){.dgrid{grid-template-columns:1fr}}
+.offtop{flex:none;display:flex;align-items:center;gap:14px;padding:15px 24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.55)}
 .close{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:17px;color:var(--ink);box-shadow:var(--sh);transition:.25s}
 .close:hover{background:var(--red);color:#fff;border-color:var(--red);transform:rotate(90deg)}
 .offtop .dcount{font-family:'Space Grotesk';font-size:12.5px;color:var(--mut);font-weight:600}
@@ -151,7 +155,8 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#eef2f
 .dnav button{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:16px;color:var(--ink);box-shadow:var(--sh);transition:.25s}
 .dnav button:hover:not(:disabled){background:var(--blue);color:#fff;border-color:var(--blue)}
 .dnav button:disabled{opacity:.3;cursor:default}
-.offbody{padding:26px 30px 70px}
+.offbody{flex:1;min-height:0;overflow-y:auto;padding:22px 26px}
+.offbody::-webkit-scrollbar{width:9px}.offbody::-webkit-scrollbar-thumb{background:rgba(16,42,80,.18);border-radius:8px}
 
 .hero{position:relative;border:1px solid var(--gbrd);border-radius:24px;padding:30px 32px;overflow:hidden;background:var(--glass);box-shadow:var(--sh)}
 .hero:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(var(--blue),var(--red))}
@@ -226,8 +231,8 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
 .sidebar{position:fixed;left:0;top:0;bottom:0;width:266px;z-index:35;display:flex;flex-direction:column;padding:24px 18px;
   background:linear-gradient(180deg,rgba(16,24,42,.93),rgba(10,16,30,.95));backdrop-filter:blur(22px) saturate(140%);
   border-right:1px solid rgba(255,255,255,.08);box-shadow:16px 0 50px rgba(9,16,32,.20)}
-.sidebar .brand{background:#fff;border-radius:16px;padding:13px 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.28)}
-.sidebar .brand img{height:46px;width:auto}
+.sidebar .brand{padding:8px 4px;display:flex;align-items:center;justify-content:center}
+.sidebar .brand img{height:52px;width:auto}
 .navttl{color:rgba(255,255,255,.42);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;margin:26px 10px 12px}
 .menu{display:flex;flex-direction:column;gap:8px}
 .mitem{display:flex;align-items:center;gap:13px;padding:14px 15px;border-radius:14px;border:1px solid transparent;background:transparent;color:rgba(255,255,255,.72);cursor:pointer;transition:.25s;text-align:left;font-family:'Sora';font-weight:600;font-size:13px;width:100%}
@@ -235,8 +240,11 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
 .mitem:hover{background:rgba(255,255,255,.07);color:#fff;transform:translateX(3px)}
 .mitem.active{background:linear-gradient(120deg,rgba(10,86,168,.92),rgba(8,59,115,.92));color:#fff;border-color:rgba(255,255,255,.14);box-shadow:0 12px 28px rgba(10,86,168,.42)}
 .mitem.active .mi-n{color:#8fbcff}
+.cover-btn{margin-top:16px;width:100%;padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);font-family:'Sora';font-weight:600;font-size:12px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:8px;justify-content:center}
+.cover-btn:hover{background:rgba(255,255,255,.09);color:#fff;border-color:rgba(255,255,255,.22)}
+.cover-btn span{font-size:14px}
 .side-foot{margin-top:auto;text-align:center;padding-top:20px}
-.side-foot img{width:100%;max-width:158px;background:#fff;border-radius:12px;padding:9px;box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.side-foot img{width:100%;max-width:180px;padding:2px}
 .side-foot p{color:rgba(255,255,255,.42);font-size:9.5px;line-height:1.45;margin-top:12px}
 .stage{margin-left:266px;position:relative;z-index:2;height:100vh;overflow:hidden}
 .slide{display:none}
@@ -366,22 +374,71 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
 .fadeswap{animation:fadeswap .32s ease}
 @keyframes fadeswap{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.explorer{grid-template-columns:1fr}.exp-list{flex-direction:row;overflow-x:auto;max-height:none}.exp-tile{min-width:220px}.exp-detail{padding:24px}}
+
+/* ===== cover / portada ===== */
+#cover{position:fixed;inset:0;z-index:200;overflow:hidden;background:radial-gradient(120% 120% at 50% -10%,#13233f,#0a1120 58%,#070c16);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5vh 6vw;color:#eaf0ff;transition:opacity .7s ease,transform .7s ease}
+#cover.hide{opacity:0;transform:scale(1.05);pointer-events:none}
+.cv-aurora{position:absolute;inset:-25%;z-index:0;background:radial-gradient(closest-side at 18% 22%,rgba(46,134,255,.55),transparent 70%),radial-gradient(closest-side at 82% 18%,rgba(225,37,27,.42),transparent 70%),radial-gradient(closest-side at 68% 88%,rgba(18,164,90,.34),transparent 70%),radial-gradient(closest-side at 28% 82%,rgba(124,92,255,.36),transparent 70%);filter:blur(52px);animation:cvfloat 20s ease-in-out infinite}
+@keyframes cvfloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(3%,-2%) scale(1.05)}66%{transform:translate(-3%,2%) scale(1.02)}}
+.cv-grid{position:absolute;inset:0;z-index:0;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:54px 54px;mask:radial-gradient(circle at 50% 45%,#000,transparent 78%)}
+.cv-inner{position:relative;z-index:2;max-width:1000px;display:flex;flex-direction:column;align-items:center;gap:22px}
+.cv-inner>*{opacity:0;transform:translateY(22px);animation:cvUp .85s forwards cubic-bezier(.2,.75,.2,1)}
+.cv-inner>*:nth-child(1){animation-delay:.15s}.cv-inner>*:nth-child(2){animation-delay:.3s}.cv-inner>*:nth-child(3){animation-delay:.45s}.cv-inner>*:nth-child(4){animation-delay:.6s}.cv-inner>*:nth-child(5){animation-delay:.75s}.cv-inner>*:nth-child(6){animation-delay:.9s}
+@keyframes cvUp{to{opacity:1;transform:none}}
+.cv-logo{height:74px;width:auto}
+.cv-adj{font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:#9fb4d6;font-weight:600;max-width:680px;line-height:1.55}
+.cv-title{font-family:'Sora';font-weight:800;font-size:clamp(30px,5.2vw,60px);line-height:1.04;letter-spacing:-1px;background:linear-gradient(100deg,#eaf2ff,#8fbcff 55%,#ff8f86);-webkit-background-clip:text;background-clip:text;color:transparent;display:flex;flex-direction:column;align-items:center}
+.cv-title-sub{font-family:'Sora';font-weight:600;font-size:clamp(13px,1.7vw,20px);letter-spacing:.4px;color:#c3d3ee;-webkit-text-fill-color:#c3d3ee;margin-top:14px;text-transform:none;max-width:760px}
+.cv-phases{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center}
+.cv-ph{font-family:'Sora';font-weight:700;font-size:14px;padding:9px 18px;border-radius:30px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);backdrop-filter:blur(6px);color:#eaf0ff}
+.cv-arw{color:#7f9cc9;font-size:16px}
+.cv-meta{display:flex;align-items:center;gap:16px;color:#b9c8e4;font-size:14.5px;font-weight:500;flex-wrap:wrap;justify-content:center}
+.cv-meta i{width:6px;height:6px;border-radius:50%;background:#e1251b;display:inline-block}
+.cv-btn{margin-top:6px;display:inline-flex;align-items:center;gap:12px;font-family:'Sora';font-weight:700;font-size:16px;color:#fff;border:0;cursor:pointer;padding:16px 36px;border-radius:16px;background:linear-gradient(120deg,#0a56a8,#2e86ff);box-shadow:0 14px 40px rgba(46,134,255,.5);transition:.25s;position:relative;overflow:hidden}
+.cv-btn:hover{transform:translateY(-3px);box-shadow:0 20px 56px rgba(46,134,255,.66)}
+.cv-btn>span{transition:.25s}.cv-btn:hover>span{transform:translateX(5px)}
+.cv-btn:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);transform:translateX(-100%);animation:cvshine 3.2s infinite}
+@keyframes cvshine{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
+.cv-anniv{position:absolute;bottom:34px;right:42px;z-index:2;height:66px;opacity:0;animation:cvUp 1s .95s forwards}
+.cv-hint{position:absolute;bottom:40px;left:42px;z-index:2;color:#6f86ad;font-size:12px;letter-spacing:1px;opacity:0;animation:cvUp 1s 1.1s forwards}
+.cv-hint b{color:#9fb4d6;font-weight:700}
+@media(max-width:720px){.cv-anniv{height:46px;bottom:18px;right:18px}.cv-hint{display:none}.cv-logo{height:56px}}
 </style>
 </head>
 <body>
 <div id="prog"></div>
+<div id="cover">
+  <div class="cv-aurora"></div>
+  <div class="cv-grid"></div>
+  <div class="cv-inner">
+    <img class="cv-logo" src="__LOGO__" alt="Defensoría del Pueblo">
+    <div class="cv-adj">Defensoría del Pueblo · Adjuntía para la Prevención de Conflictos Sociales y la Gobernabilidad</div>
+    <h1 class="cv-title">BALANCE Y PROSPECTIVA<span class="cv-title-sub">en materia de prevención y gestión de conflictos sociales</span></h1>
+    <div class="cv-phases">
+      <span class="cv-ph">Contexto</span><span class="cv-arw">→</span>
+      <span class="cv-ph">Mejoras</span><span class="cv-arw">→</span>
+      <span class="cv-ph">Prospección</span>
+    </div>
+    <div class="cv-meta"><span>Julio 2026</span><i></i><span>Período del informe · 2023 – 2026</span></div>
+    <button id="startBtn" class="cv-btn">Iniciar presentación <span>&rarr;</span></button>
+  </div>
+  <img class="cv-anniv" src="__ANNIV__" alt="30 años Defendiendo tus derechos">
+  <div class="cv-hint">Presiona <b>Iniciar</b> o <b>Enter</b> para comenzar</div>
+</div>
+
 <div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
 <div class="gridlines"></div>
 
 <aside class="sidebar">
   <div class="brand"><img src="__LOGO__" alt="Defensoría del Pueblo"></div>
-  <div class="navttl">Exposición · Alta Dirección</div>
+  
   <nav class="menu">
     <button class="mitem" data-s="s-antecedentes"><span class="mi-n">01</span><span class="mi-l">Antecedentes</span></button>
     <button class="mitem active" data-s="s-balance"><span class="mi-n">02</span><span class="mi-l">Balance de Informes</span></button>
     <button class="mitem" data-s="s-fortalecimiento"><span class="mi-n">03</span><span class="mi-l">Fortalecimiento Institucional</span></button>
     <button class="mitem" data-s="s-prospectiva"><span class="mi-n">04</span><span class="mi-l">Prospectiva Gubernamental</span></button>
   </nav>
+  <button class="cover-btn" id="toCover"><span>&#8617;</span> Volver a la portada</button>
   <div class="side-foot"><img src="__ANNIV__" alt="30 años Defendiendo tus derechos"><p>Adjuntía para la Prevención de Conflictos Sociales y la Gobernabilidad</p></div>
 </aside>
 
@@ -404,10 +461,11 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
 
   <div class="subpanel active" data-t="a1"><div class="subbox">
     <p class="blocklead">La Adjuntía para la Prevención de Conflictos Sociales y la Gobernabilidad (ACSGO) ejerce el mandato constitucional de defender los derechos fundamentales en escenarios de conflictividad social, promoviendo el diálogo como mecanismo democrático y pacífico de resolución de controversias, con respaldo de la Ley N.° 32028.</p>
-    <div class="grid3" style="margin-top:22px">
-      <div class="gcard"><h4><span class="ic">◈</span>Alerta preventiva</h4><p>Anticipación temprana de escenarios de riesgo mediante monitoreo permanente de la conflictividad social a nivel nacional.</p></div>
-      <div class="gcard"><h4><span class="ic">◇</span>Mediación</h4><p>Facilitación del diálogo en espacios entre el Estado, la sociedad civil y las empresas para reconducir demandas a la vía institucional.</p></div>
-      <div class="gcard"><h4><span class="ic">✓</span>Supervisión y cumplimiento</h4><p>Seguimiento del cumplimiento de acuerdos y de las obligaciones del Estado, operado por tres unidades funcionales especializadas.</p></div>
+    <p class="blocklead" style="margin-top:8px">Su accionar se operativiza a través de tres unidades funcionales especializadas (creadas mediante Resolución de Secretaría General N.° 0236-2024-DP/SG):</p>
+    <div class="grid3" style="margin-top:16px">
+      <div class="gcard"><h4><span class="ic">◈</span>Unidad Funcional de Prevención y Alertas</h4></div>
+      <div class="gcard"><h4><span class="ic">◇</span>Unidad Funcional de Mediación y Gestión de Conflictos</h4></div>
+      <div class="gcard"><h4><span class="ic">✓</span>Unidad Funcional de Gestión de Cumplimiento de Acuerdos</h4></div>
     </div>
     <div class="ch"><span class="cn">1.1.1</span>Salvaguarda de la vida y desescalamiento</div>
     <div class="metrics">
@@ -476,62 +534,42 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
 
 <section id="s-balance" class="slide active">
   <div class="subhead">
+    <div class="slidehead">
+      <span class="eyebrow2"><span class="pulse"></span>02 · Balance de Informes</span>
+      <h1 class="slidetitle">Balance de los <span class="g">informes defensoriales</span></h1>
+      <p class="slidesub">Los ocho informes registrados por la Adjuntía, con las recomendaciones formuladas a cada institución y su nivel de acogida.</p>
+    </div>
     <div class="subtabs">
       <button class="subtab active" data-t="b1"><span class="st-n">2.1</span>Informes y recomendaciones</button>
       <button class="subtab" data-t="b2"><span class="st-n">2.2</span>Balance general</button>
     </div>
   </div>
-  <div class="subpanel active" data-t="b1">
-<div class="home">
-  <span class="eyebrow rise"><span class="pulse"></span>Defendiendo tus derechos · 2023–2026</span>
-  <div class="hometitle rise" style="animation-delay:.06s">Informes que <span class="g">transforman</span><br>la gestión de conflictos</div>
-  <p class="homesub rise" style="animation-delay:.12s">Panel interactivo de los informes defensoriales de la Adjuntía: objetivos, público beneficiario y las recomendaciones dirigidas a cada institución del Estado, con su nivel de acogida.</p>
-
-  <div class="overview">
-    <div class="kpis scene">
-      <div class="kcard k1 rise" style="animation-delay:.18s"><div class="ico">▤</div><b id="ov1">0</b><span>Informes defensoriales</span></div>
-      <div class="kcard k2 rise" style="animation-delay:.26s"><div class="ico">◆</div><b id="ov2">0</b><span>Recomendaciones</span></div>
-      <div class="kcard k3 rise" style="animation-delay:.34s"><div class="ico">◎</div><b id="ov3">0</b><span>Instituciones alcanzadas</span></div>
-      <div class="kcard k4 rise" style="animation-delay:.42s"><div class="ico">✓</div><b id="ov4">0</b><span>Recomendaciones acogidas</span></div>
-    </div>
-    <div class="panorama rise" style="animation-delay:.5s">
-      <h3>Panorama de recomendaciones</h3>
-      <div class="psub">Nivel de acogida del Estado y distribución por informe · pasa el cursor sobre las barras</div>
-      <div class="donutwrap">
-        <div class="donut" id="donut"><div class="dc"><b id="dpct">0%</b><small>Acogidas</small></div></div>
-        <div class="dside">
-          <div class="dstat"><span class="sw" style="background:var(--grn)"></span><span class="nm">Acogidas</span><span class="vl" id="dok" style="color:var(--grn)">0</span></div>
-          <div class="dstat"><span class="sw" style="background:var(--red)"></span><span class="nm">No acogidas</span><span class="vl" id="dno" style="color:var(--red)">0</span></div>
-          <div class="dstat"><span class="sw" style="background:var(--blue)"></span><span class="nm">Total emitidas</span><span class="vl" id="dtot" style="color:var(--blue)">0</span></div>
-        </div>
-      </div>
-      <div class="pbars"><div class="pbtitle">Recomendaciones por informe</div><div id="prows"></div></div>
-    </div>
-  </div>
-
-  <div class="sec-title rise" style="animation-delay:.58s"><h2>Explora los informes</h2><div class="ln"></div><div class="hintc">Haz clic en una tarjeta para abrir el detalle →</div></div>
-  <div class="filters rise" style="animation-delay:.62s" id="filters"></div>
-  <div class="mosaic scene" id="mosaic"></div>
-</div>
-  </div>
+  <div class="subpanel active" data-t="b1"><div class="subbox">
+    <div class="mosaic scene" id="mosaic"></div>
+  </div></div>
   <div class="subpanel" data-t="b2"><div class="subbox">
-    <p class="blocklead">Balance agregado de los 8 informes emitidos entre 2023 y 2026: una producción documental amplia y diversa que formula 165 recomendaciones a 45 instituciones distintas, con una tasa de acogida global del 8%.</p>
-    <div class="ch"><span class="cn">2.2.1</span>Indicadores agregados</div>
-    <div class="metrics">
-      <div class="metric"><b>8</b><span>Informes y documentos (todos publicados)</span></div>
-      <div class="metric"><b>45</b><span>Instituciones destinatarias distintas (incl. 25 gobiernos regionales)</span></div>
-      <div class="metric"><b>165</b><span>Recomendaciones formuladas</span></div>
-      <div class="metric g"><b>14 · 8%</b><span>Recomendaciones acogidas</span></div>
-      <div class="metric r"><b>151 · 92%</b><span>Recomendaciones no acogidas</span></div>
-      <div class="metric r"><b>5 de 8</b><span>Informes con 0% de acogida (1, 5, 6, 7 y 8)</span></div>
-      <div class="metric g"><b>1 de 8</b><span>Informe con acogida total (Informe 3 — Minam)</span></div>
-    </div>
-    <div class="ch"><span class="cn">2.2.4</span>Análisis general del cumplimiento</div>
-    <div class="grid2">
-      <div class="gcard"><h4><span class="ic">◆</span>El peso del Informe 5</h4><p>La baja tasa global se explica en gran medida por el Informe 5: sus <b>130 recomendaciones (79% del total)</b> no fueron acogidas por ninguna de las 30 instituciones supervisadas (Congreso, PCM, Ceplan, 10 ministerios y 25 gobiernos regionales).</p></div>
-      <div class="gcard g"><h4><span class="ic">✓</span>Un panorama más matizado</h4><p>Al excluir el efecto de escala del Informe 5: el Informe 3 mantiene acogida total, el Informe 4 mejoró de 40% a <b>70%</b> (la PCM aceptó transición de gobierno) y el Informe 2 pasó de 0% a <b>33%</b> (el INDECI acogió su recomendación técnica).</p></div>
-      <div class="gcard r"><h4><span class="ic">◈</span>Brechas persistentes</h4><p>La Policía Nacional no acogió ninguna de sus 5 recomendaciones (Informes 1 y 4); el <b>Ministerio de Energía y Minas</b> acumula 3 informes consecutivos (2, 7 y 8) sin acoger ninguna; y ni los 25 gobiernos regionales ni los 10 ministerios del Informe 5 acogieron sus recomendaciones.</p></div>
-      <div class="gcard"><h4><span class="ic">▤</span>Comportamiento mixto y seguimiento</h4><p>La PCM acogió el Informe 4 (coyuntura) pero no el 5 (reforma estructural). Frente a la no acogida, la Adjuntía mantiene oficios de insistencia y escala hacia un <b>proyecto de ley propio</b> para crear el Sistema Nacional de Prevención y Gestión de Conflictos Sociales.</p></div>
+    <p class="blocklead">Resumen agregado de los 8 informes (2023–2026): 165 recomendaciones a 45 instituciones, con 8% de acogida global. Filtra por año para recalcular los indicadores.</p>
+    <div class="filters" id="filters" style="margin-top:16px"></div>
+    <div class="overview" style="margin-top:6px">
+      <div class="kpis scene">
+        <div class="kcard k1"><div class="ico">▤</div><b id="ov1">0</b><span>Informes defensoriales</span></div>
+        <div class="kcard k2"><div class="ico">◆</div><b id="ov2">0</b><span>Recomendaciones</span></div>
+        <div class="kcard k3"><div class="ico">◎</div><b id="ov3">0</b><span>Instituciones alcanzadas</span></div>
+        <div class="kcard k4"><div class="ico">✓</div><b id="ov4">0</b><span>Recomendaciones acogidas</span></div>
+      </div>
+      <div class="panorama">
+        <h3>Panorama de recomendaciones</h3>
+        <div class="psub">Nivel de acogida del Estado y distribución por informe · pasa el cursor sobre las barras</div>
+        <div class="donutwrap">
+          <div class="donut" id="donut"><div class="dc"><b id="dpct">0%</b><small>Acogidas</small></div></div>
+          <div class="dside">
+            <div class="dstat"><span class="sw" style="background:var(--grn)"></span><span class="nm">Acogidas</span><span class="vl" id="dok" style="color:var(--grn)">0</span></div>
+            <div class="dstat"><span class="sw" style="background:var(--red)"></span><span class="nm">No acogidas</span><span class="vl" id="dno" style="color:var(--red)">0</span></div>
+            <div class="dstat"><span class="sw" style="background:var(--blue)"></span><span class="nm">Total emitidas</span><span class="vl" id="dtot" style="color:var(--blue)">0</span></div>
+          </div>
+        </div>
+        <div class="pbars"><div class="pbtitle">Recomendaciones por informe</div><div id="prows"></div></div>
+      </div>
     </div>
   </div></div>
 </section>
@@ -660,7 +698,6 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
       <div class="gcard"><h4>Conflictos nuevos por año</h4><div class="chart" id="ch-nuevos"></div></div>
     </div>
     <div class="ch"><span class="cn">Escenarios</span>Proyección a 12 meses</div>
-    <div class="csub">Del más probable al de mayor impacto.</div>
     <div class="csub">Del más probable al de mayor impacto. Selecciona un escenario para ver el análisis completo.</div>
     <div class="explorer" id="exp-escenarios"></div>
   </div></div>
@@ -718,12 +755,11 @@ function countUp(el,to,ms,suf){if(!el)return;let n=0;const step=Math.max(1,Math.
 /* ===== panorama ===== */
 const prowsEl=document.getElementById('prows');
 function renderPanorama(list){
-  const maxRecs=Math.max(1,...list.map(recSum));
   prowsEl.innerHTML=list.map((d)=>{
     const ok=okRecs(d),no=noRecs(d),v=recSum(d);const i=DOCS.indexOf(d);
-    const tip=`<div class="tt">${d.short} · ${d.tipo}</div><div class="tk"><span class="ok">Acogidas</span><b class="ok">${ok}</b></div><div class="tk"><span class="no">No acogidas</span><b class="no">${no}</b></div><div class="tk"><span class="tot">Total</span><b class="tot">${v}</b></div>`;
-    return `<div class="prow" data-i="${i}" data-tip="${encodeURIComponent(tip)}"><span class="pl">${d.short}</span><div class="ptrack">
-      <span class="seg ok" data-w="${ok/maxRecs*100}"></span><span class="seg no" data-w="${no/maxRecs*100}"></span></div><span class="pv">${v}</span></div>`;
+    const pct=v?Math.round(ok/v*100):0;
+    const tip=`<div class="tt">${d.short} · ${d.tipo}</div><div class="tk"><span class="ok">Acogidas</span><b class="ok">${ok} · ${pct}%</b></div><div class="tk"><span class="no">No acogidas</span><b class="no">${no}</b></div><div class="tk"><span class="tot">Total</span><b class="tot">${v}</b></div>`;
+    return `<div class="prow" data-i="${i}" data-tip="${encodeURIComponent(tip)}"><span class="pl">${d.short}</span><div class="ptrack"><span class="seg ok" data-w="${pct}"></span></div><span class="pv">${v}</span></div>`;
   }).join('');
   requestAnimationFrame(()=>prowsEl.querySelectorAll('.seg').forEach(s=>s.style.width=parseFloat(s.dataset.w)+'%'));
 }
@@ -758,15 +794,14 @@ function glare(el){
   el.addEventListener('mouseleave',()=>{if(el.classList.contains('tile'))el.style.transform='';});
 }
 DOCS.forEach((d,i)=>{
-  const ds=docState(d);const feat=i===0;const wide=(DOCS.length%2===0)&&(i===DOCS.length-1);
+  const ds=docState(d);const feat=false;const wide=false;
   const t=document.createElement('div');
   t.className='tile'+(feat?' feat':'')+(wide?' wide':'')+' rise';t.dataset.i=i;t.style.animationDelay=(.66+i*.08)+'s';
   t.innerHTML=`<div class="accent"></div><div class="ghost">${String(i+1).padStart(2,'0')}</div>
     <div class="tstate ${ds.cls}">${ds.text}</div>
     <div class="tlabel">${d.label}</div>
     <div class="ttitle">${d.titulo.replace(/\n/g,' ')}</div>
-    ${feat?`<div class="tdesc">${d.objetivo}</div>`:''}
-    <div class="tmeta"><span class="tchip b">${d.anio}</span><span class="tchip">${d.linea}</span><span class="tchip">${dispCount(d)} instituciones · ${recSum(d)} recom.</span></div>
+    <div class="tmeta"><span class="tchip b">${d.anio}</span><span class="tchip">${dispCount(d)} instituciones · ${recSum(d)} recom.</span></div>
     <span class="tgo">Ver informe &rarr;</span>`;
   t.onclick=()=>openDetail(i);glare(t);mosaic.appendChild(t);
 });
@@ -781,12 +816,7 @@ FILTERS.forEach((f,idx)=>{const b=document.createElement('button');b.className='
 let VIS=DOCS.slice();
 function applyFilter(k,btn){
   filtersEl.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
-  const vis=[];
-  document.querySelectorAll('.tile').forEach(t=>{
-    const d=DOCS[+t.dataset.i];const ok=matchF(d,k);
-    if(ok){vis.push(d);t.classList.remove('hidden');requestAnimationFrame(()=>t.classList.remove('hiding'));}
-    else{t.classList.add('hiding');setTimeout(()=>t.classList.add('hidden'),380);}
-  });
+  const vis=DOCS.filter(d=>matchF(d,k));
   VIS=vis.length?vis:DOCS;recompute(VIS);
 }
 
@@ -829,7 +859,7 @@ function detailHTML(i){
       <div class="spacer"></div>
       <div class="dnav"><button id="dp">&larr;</button><button id="dn">&rarr;</button></div>
     </div>
-    <div class="offbody">
+    <div class="offbody"><div class="dgrid"><div class="dcol">
       <section class="hero reveal"><div class="bignum">${String(i+1).padStart(2,'0')}</div>
         <span class="tag">&#9670; ${d.tipo} &middot; ${d.estado}</span>
         <div class="doc-num">${d.label}</div>
@@ -848,8 +878,8 @@ function detailHTML(i){
       </div>
       <div class="panel reveal" style="border:1px solid var(--gbrd);border-radius:18px;padding:22px 24px;background:var(--glass);box-shadow:var(--sh)"><div style="font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);margin-bottom:12px;font-weight:700">◉ Objetivo del documento</div><p style="font-size:14px;line-height:1.65;color:#2a3340">${d.objetivo}</p></div>
       <div class="panel reveal" style="border:1px solid var(--gbrd);border-radius:18px;padding:22px 24px;background:var(--glass);box-shadow:var(--sh);margin-top:14px"><div style="font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);margin-bottom:12px;font-weight:700;color:var(--red)">❖ Público beneficiario</div><p style="font-size:14px;line-height:1.65;color:#2a3340">${d.publico}</p></div>
-      <div class="sec-h"><h3>Recomendaciones por institución</h3><div class="line"></div><div class="cnt">${dispCount(d)} entidad(es)</div></div>
-      <div class="recs">${recsHtml}</div>
+      </div><div class="dcol"><div class="sec-h"><h3>Recomendaciones por institución</h3><div class="line"></div><div class="cnt">${dispCount(d)} entidad(es)</div></div>
+      <div class="recs">${recsHtml}</div></div></div>
     </div>`;
 }
 function openDetail(i){
@@ -861,6 +891,7 @@ function openDetail(i){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{root:off,threshold:.06});
   off.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   requestAnimationFrame(()=>off.querySelectorAll('.reveal').forEach(el=>{if(el.getBoundingClientRect().top<innerHeight)el.classList.add('in')}));
+  const ob=off.querySelector('.offbody');if(ob)ob.addEventListener('scroll',()=>{const p=ob.scrollTop/(ob.scrollHeight-ob.clientHeight||1);document.getElementById('prog').style.width=(p*100)+'%';});
 }
 function closeDetail(){scrim.classList.remove('open');off.classList.remove('open');document.body.style.overflow='';cur=-1;}
 /* accordion verbs */
@@ -894,7 +925,7 @@ document.querySelectorAll('.subtab').forEach(tb=>tb.onclick=()=>{
   const sec=tb.closest('.slide');const k=tb.dataset.t;
   sec.querySelectorAll('.subtab').forEach(x=>x.classList.toggle('active',x===tb));
   sec.querySelectorAll('.subpanel').forEach(p=>p.classList.toggle('active',p.dataset.t===k));
-  if(k==='b1')recompute(VIS);
+  if(k==='b2')recompute(VIS);
   activateDynamics(sec);
 });
 
@@ -979,9 +1010,8 @@ const EXPLORERS={
    {ico:'🚠',name:'Ruta Hiram Bingham — Consettur',meta:'2025 · Cusco',tag:{t:'Mediación',c:'amber'},title:'Dos treguas para el servicio a Machu Picchu',body:'Ante el riesgo inminente de paralización del servicio turístico hacia Machu Picchu por incertidumbre jurídica, la Defensoría lideró un complejo proceso de mediación. La actuación consolidó <b>dos treguas estratégicas</b> con la comunidad de San Antonio de Torontoy, desescalando la conflictividad social en una de las zonas económicas más sensibles del país.'}
  ],
  'exp-escenarios':[
-   {ico:'🕊️',name:'A · Contención',meta:'Probabilidad media-alta',tag:{t:'Base / más probable',c:'green'},title:'La tendencia de desescalamiento se prolonga',body:'La conflictividad se mantiene alta en número pero <b>contenida en violencia</b>, prolongando la tendencia de desescalamiento. Las protestas continúan (~2 500–3 000 al año) sin derivar en víctimas masivas. El sistema de alerta temprana y el acompañamiento defensorial —con presencia garante en el 95.6% de las mesas activas— actúa como amortiguador. Requiere que el gobierno mantenga canales de diálogo abiertos y dé señales tempranas en el REINFO y en el cumplimiento de acuerdos. <b>El principal desafío es de gestión, no de contención de crisis.</b>'},
-   {ico:'⚠️',name:'B · Repunte sectorial',meta:'Probabilidad media',tag:{t:'Intermedio',c:'amber'},title:'Uno o dos frentes escalan de forma localizada',body:'Típicamente la minería informal combinada con el corredor minero del sur andino o con el descontento urbano por seguridad. Se producen bloqueos prolongados de vías, paros regionales y un número acotado de heridos, <b>sin llegar a una crisis nacional</b>. Se activa si el cierre o la prórroga del REINFO se maneja sin diálogo previo, o si un incumplimiento de acuerdos de alto perfil reactiva conflictos latentes. El impacto es económico y de gobernabilidad regional, pero <b>manejable con intervención oportuna</b>.'},
-   {ico:'🔥',name:'C · Crisis nacional',meta:'Probabilidad baja · impacto muy alto',tag:{t:'Crítico',c:'red'},title:'Ola de protestas simultáneas a nivel nacional',body:'Convergen un detonante político-nacional (cuestionamiento a la legitimidad del gobierno, tensión entre poderes o el ciclo electoral) con el malestar socioeconómico y la minería informal. El resultado es una ola de protestas simultáneas, con bloqueos masivos y riesgo de víctimas, al estilo de diciembre de 2022 y octubre de 2025. La violencia letal en el Perú no proviene de la conflictividad socioambiental ordinaria, sino de estas crisis políticas. <b>Es de baja frecuencia pero de consecuencias severas, y exige un protocolo de respuesta preparado de antemano.</b>'}
+   {ico:'🕊️',name:'A · Contención',meta:'Probabilidad alta',tag:{t:'Base / más probable',c:'green'},title:'La tendencia de desescalamiento se prolonga',body:'La conflictividad se mantiene alta en número pero <b>contenida en violencia</b>, prolongando la tendencia de desescalamiento. Las protestas continúan (~2 500–3 000 al año) sin derivar en una gran cantidad de heridos y fallecidos. El sistema de alerta temprana y el acompañamiento defensorial —con presencia garante en el 95.6% de las mesas activas— actúa como amortiguador. Requiere que el gobierno mantenga canales de diálogo abiertos y dé señales tempranas en el REINFO y en el cumplimiento de acuerdos. <b>El principal desafío es de gestión, no de contención de crisis.</b>'},
+   {ico:'⚠️',name:'B · Repunte sectorial',meta:'Probabilidad media',tag:{t:'Intermedio',c:'amber'},title:'Uno o dos frentes escalan de forma localizada',body:'Típicamente la minería informal combinada con el corredor minero del sur andino o con el descontento urbano por seguridad. Se producen bloqueos prolongados de vías, paros regionales y un número acotado de heridos, <b>sin llegar a una crisis nacional</b>. Se activa si el cierre o la prórroga del REINFO se maneja sin diálogo previo, o si un incumplimiento de acuerdos de alto perfil reactiva conflictos latentes. El impacto es económico y de gobernabilidad regional, pero <b>manejable con intervención oportuna</b>.'}
  ]
 };
 function showExp(el,it){
@@ -1012,6 +1042,15 @@ function activateDynamics(root){const R=root||document;
 /* ===== init ===== */
 document.querySelectorAll('.subpanel').forEach(sp=>sp.addEventListener('scroll',()=>{const p=sp.scrollTop/(sp.scrollHeight-sp.clientHeight||1);document.getElementById('prog').style.width=(p*100)+'%';}));
 window.addEventListener('load',()=>{ setTimeout(()=>{recompute(DOCS);activateDynamics(document);},400); });
+</script>
+<script>
+(function(){var cover=document.getElementById('cover');if(!cover)return;
+function start(){cover.classList.add('hide');try{navTo('s-antecedentes');}catch(e){}setTimeout(function(){cover.style.display='none';},760);}
+function showCover(){cover.style.display='flex';requestAnimationFrame(function(){cover.classList.remove('hide');});}
+var b=document.getElementById('startBtn');if(b)b.addEventListener('click',start);
+var tc=document.getElementById('toCover');if(tc)tc.addEventListener('click',showCover);
+document.addEventListener('keydown',function(e){if(cover.style.display!=='none'&&!cover.classList.contains('hide')&&(e.key==='Enter'||e.key===' ')){e.preventDefault();start();}});
+})();
 </script>
 </body>
 </html>
