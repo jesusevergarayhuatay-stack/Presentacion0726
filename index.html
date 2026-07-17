@@ -371,6 +371,7 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
 .exp-detail .dt{font-family:'Sora';font-weight:800;font-size:22px;line-height:1.3;margin-bottom:11px;color:var(--ink)}
 .exp-detail .db{font-size:15px;line-height:1.78;color:#334155}
 .exp-detail .db b{color:var(--ink)}
+.dsub{align-self:flex-start;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--blue-d);background:var(--blue-l);border:1px solid #cfe0f4;padding:8px 14px;border-radius:12px;margin-bottom:12px}
 .fadeswap{animation:fadeswap .32s ease}
 @keyframes fadeswap{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.explorer{grid-template-columns:1fr}.exp-list{flex-direction:row;overflow-x:auto;max-height:none}.exp-tile{min-width:220px}.exp-detail{padding:24px}}
@@ -1016,8 +1017,8 @@ const EXPLORERS={
    {ico:'🚠',name:'Ruta Hiram Bingham — Consettur',meta:'2025 · Cusco',tag:{t:'Mediación',c:'amber'},title:'Dos treguas para el servicio a Machu Picchu',body:'Ante el riesgo inminente de paralización del servicio turístico hacia Machu Picchu por incertidumbre jurídica, la Defensoría lideró un complejo proceso de mediación. La actuación consolidó <b>dos treguas estratégicas</b> con la comunidad de San Antonio de Torontoy, desescalando la conflictividad social en una de las zonas económicas más sensibles del país.'}
  ],
  'exp-escenarios':[
-   {ico:'🕊️',name:'A · Contención',meta:'Probabilidad alta',tag:{t:'Base / más probable',c:'green'},title:'La tendencia de desescalamiento se prolonga',body:'La conflictividad se mantiene alta en número pero <b>contenida en violencia</b>, prolongando la tendencia de desescalamiento. Las protestas continúan (~2 500–3 000 al año) sin derivar en una gran cantidad de heridos y fallecidos. El sistema de alerta temprana y el acompañamiento defensorial —con presencia garante en el 95.6% de las mesas activas— actúa como amortiguador. Requiere que el gobierno mantenga canales de diálogo abiertos y dé señales tempranas en el REINFO y en el cumplimiento de acuerdos. <b>El principal desafío es de gestión, no de contención de crisis.</b>'},
-   {ico:'⚠️',name:'B · Repunte sectorial',meta:'Probabilidad media',tag:{t:'Intermedio',c:'amber'},title:'Uno o dos frentes escalan de forma localizada',body:'Típicamente la minería informal combinada con el corredor minero del sur andino o con el descontento urbano por seguridad. Se producen bloqueos prolongados de vías, paros regionales y un número acotado de heridos, <b>sin llegar a una crisis nacional</b>. Se activa si el cierre o la prórroga del REINFO se maneja sin diálogo previo, o si un incumplimiento de acuerdos de alto perfil reactiva conflictos latentes. El impacto es económico y de gobernabilidad regional, pero <b>manejable con intervención oportuna</b>.'}
+   {ico:'🕊️',name:'A · Contención',meta:'Probabilidad alta',tag:{t:'Base / más probable',c:'green'},detail:'Intensidad baja del conflicto · Alta probabilidad de ocurrencia',title:'La tendencia de desescalamiento se prolonga',body:'La conflictividad se mantiene alta en número pero <b>contenida en violencia</b>, prolongando la tendencia de desescalamiento. Las protestas continúan (~2 500–3 000 al año) sin derivar en una gran cantidad de heridos y fallecidos. El sistema de alerta temprana y el acompañamiento defensorial —con presencia garante en el 95.6% de las mesas activas— actúa como amortiguador. Requiere que el gobierno mantenga canales de diálogo abiertos y dé señales tempranas en el REINFO y en el cumplimiento de acuerdos. <b>El principal desafío es de gestión, no de contención de crisis.</b>'},
+   {ico:'⚠️',name:'B · Repunte sectorial',meta:'Probabilidad media',tag:{t:'Intermedio',c:'amber'},detail:'Intensidad intermedia del conflicto · Baja o media probabilidad de ocurrencia',title:'Uno o dos frentes escalan de forma localizada',body:'Típicamente la minería informal combinada con el corredor minero del sur andino o con el descontento urbano por seguridad. Se producen bloqueos prolongados de vías, paros regionales y un número acotado de heridos, <b>sin llegar a una crisis nacional</b>. Se activa si el cierre o la prórroga del REINFO se maneja sin diálogo previo, o si un incumplimiento de acuerdos de alto perfil reactiva conflictos latentes. El impacto es económico y de gobernabilidad regional, pero <b>manejable con intervención oportuna</b>.'}
  ]
 };
 function showExp(el,it){
@@ -1025,12 +1026,13 @@ function showExp(el,it){
  d.querySelector('.dic').textContent=it.ico;
  const tag=d.querySelector('.exp-tag');tag.className='exp-tag '+it.tag.c;tag.textContent=it.tag.t;
  d.querySelector('.dt').innerHTML=it.title;
+ const ds=d.querySelector('.dsub');if(ds){ds.innerHTML=it.detail?('&#9678; '+it.detail):'';ds.style.display=it.detail?'inline-flex':'none';}
  d.querySelector('.db').innerHTML=it.body;
  d.classList.remove('fadeswap');void d.offsetWidth;d.classList.add('fadeswap');
 }
 function buildExplorer(el){
  const items=EXPLORERS[el.id];if(!items)return;
- el.innerHTML='<div class="exp-list"></div><div class="exp-detail"><div class="dtop"><div class="dic"></div><span class="exp-tag"></span></div><div class="dt"></div><div class="db"></div></div>';
+ el.innerHTML='<div class="exp-list"></div><div class="exp-detail"><div class="dtop"><div class="dic"></div><span class="exp-tag"></span></div><div class="dt"></div><div class="dsub"></div><div class="db"></div></div>';
  const list=el.querySelector('.exp-list');
  items.forEach((it,i)=>{const tl=document.createElement('div');tl.className='exp-tile'+(i===0?' active':'');
    tl.innerHTML='<span class="ei">'+it.ico+'</span><div><div class="en">'+it.name+'</div><div class="em">'+it.meta+'</div></div>';
