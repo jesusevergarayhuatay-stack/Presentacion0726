@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 150" width="760" height="300">
+<rect width="380" height="150" fill="#ffffff"/>
+<defs>
+<path id="arc" d="M20 88 A82 82 0 0 1 156 50" fill="none"/>
+</defs>
+<text font-family="Arial" font-size="13" font-weight="700" fill="#0a56a8" letter-spacing="0.3">
+<textPath href="#arc" startOffset="10">República del Perú</textPath>
+</text>
+<!-- red block -->
+<rect x="18" y="52" width="126" height="86" rx="4" fill="#e1251b"/>
+<!-- white cradle hand (bowl) -->
+<path d="M34 108 Q81 140 128 108 Q108 122 81 122 Q54 122 34 108 Z" fill="#ffffff"/>
+<!-- figures -->
+<g fill="#ffffff">
+<g transform="translate(54,70)"><circle cx="0" cy="0" r="5.4"/><path d="M-6.2 34 Q-7.2 12 0 9 Q7.2 12 6.2 34 Z"/></g>
+<g transform="translate(72,63)"><circle cx="0" cy="0" r="5.9"/><path d="M-6.7 41 Q-7.7 12 0 8 Q7.7 12 6.7 41 Z"/></g>
+<g transform="translate(91,67)"><circle cx="0" cy="0" r="5.7"/><path d="M-6.4 38 Q-7.4 12 0 8.5 Q7.4 12 6.4 38 Z"/></g>
+<g transform="translate(109,73)"><circle cx="0" cy="0" r="5.2"/><path d="M-5.8 31 Q-6.8 12 0 9 Q6.8 12 5.8 31 Z"/></g>
+</g>
+<!-- wordmark -->
+<text x="162" y="82" font-family="Arial" font-weight="800" font-size="32" fill="#0a56a8">Defensoría</text>
+<text x="162" y="116" font-family="Arial" font-weight="800" font-size="32" fill="#0a56a8">del Pueblo</text>
+</svg>

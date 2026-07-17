@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Defensoría del Pueblo · Panel Ejecutivo — Informes de Conflictos Sociales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+@property --p{syntax:'<number>';inherits:true;initial-value:0}
+:root{
+  --blue:#0a56a8;--blue-d:#083b73;--blue-l:#e8f1fb;--red:#e1251b;--red-l:#fdecea;
+  --ink:#0f1319;--mut:#5c6675;--mut2:#98a2b3;--line:#e7ebf1;--soft:#f6f8fc;
+  --grn:#12a45a;--grn-l:#e7f6ee;--amb:#c47d00;
+  --glass:rgba(255,255,255,.60);--glass-2:rgba(255,255,255,.80);--gbrd:rgba(255,255,255,.85);
+  --sh:0 10px 34px rgba(16,42,80,.10);--sh2:0 30px 70px rgba(16,42,80,.20);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#eef2f8;height:100vh;overflow:hidden}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:
+  radial-gradient(60% 50% at 12% 6%,#dbe8fb,transparent 60%),
+  radial-gradient(55% 55% at 92% 8%,#fbe0dc,transparent 60%),
+  radial-gradient(70% 60% at 50% 100%,#e3ecfb,transparent 60%),
+  linear-gradient(180deg,#f3f6fb,#eaf0f8)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.6;animation:float 24s ease-in-out infinite}
+.o1{width:520px;height:520px;background:radial-gradient(circle,#bcd6f6,transparent 70%);top:-150px;left:-120px}
+.o2{width:480px;height:480px;background:radial-gradient(circle,#f9cec8,transparent 70%);top:8%;right:-120px;animation-delay:-8s}
+.o3{width:460px;height:460px;background:radial-gradient(circle,#c9def8,transparent 70%);bottom:-160px;left:36%;animation-delay:-15s}
+@keyframes float{0%,100%{transform:translate(0,0)}33%{transform:translate(46px,-30px)}66%{transform:translate(-32px,26px)}}
+.gridlines{position:fixed;inset:0;z-index:0;opacity:.4;background-image:linear-gradient(rgba(10,86,168,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(10,86,168,.06) 1px,transparent 1px);background-size:52px 52px;mask:radial-gradient(circle at 50% 20%,#000,transparent 82%)}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--blue),var(--red));transition:width .12s}
+
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:20px;padding:14px 44px;border-bottom:1px solid var(--gbrd);background:var(--glass-2);backdrop-filter:blur(18px) saturate(140%)}
+.topbar img.logo{height:52px}
+.topbar .divider{width:1px;height:40px;background:var(--line)}
+.topbar .ctx h1{font-family:'Sora';font-weight:700;font-size:14px;line-height:1.25}
+.topbar .ctx p{font-size:11px;color:var(--mut);letter-spacing:1.4px;text-transform:uppercase;margin-top:3px}
+.topbar .spacer{flex:1}
+.topbar img.anniv{height:70px;border-radius:10px}
+
+.home{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:40px 44px 90px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue);background:var(--glass);border:1px solid var(--gbrd);backdrop-filter:blur(10px);padding:7px 15px;border-radius:30px;box-shadow:var(--sh)}
+.eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(225,37,27,.5)}70%{box-shadow:0 0 0 10px rgba(225,37,27,0)}100%{box-shadow:0 0 0 0 rgba(225,37,27,0)}}
+.hometitle{font-family:'Sora';font-weight:800;font-size:48px;line-height:1.06;margin:20px 0 12px;letter-spacing:-1.2px}
+.hometitle .g{background:linear-gradient(100deg,var(--blue),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.homesub{font-size:16px;color:var(--mut);max-width:660px;line-height:1.6}
+
+.rise{opacity:0;transform:translateY(26px);animation:riseIn .7s forwards cubic-bezier(.2,.75,.2,1)}
+@keyframes riseIn{to{opacity:1;transform:none}}
+
+.overview{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:34px}
+.scene{perspective:1400px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.kcard{transform-style:preserve-3d;border:1px solid var(--gbrd);border-radius:22px;padding:24px 26px;background:var(--glass);backdrop-filter:blur(18px) saturate(150%);box-shadow:var(--sh);position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.kcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.7),transparent 42%);z-index:3}
+.kcard:hover::after{opacity:1}
+.kcard:hover{box-shadow:var(--sh2)}
+.kcard:before{content:"";position:absolute;left:0;top:0;height:100%;width:5px;z-index:2}
+.kcard.k1:before{background:var(--blue)}.kcard.k2:before{background:var(--red)}.kcard.k3:before{background:var(--grn)}.kcard.k4:before{background:var(--amb)}
+.kcard .ico{font-size:16px;opacity:.5;position:absolute;top:20px;right:22px}
+.kcard b{font-family:'Space Grotesk';font-size:42px;line-height:1;display:block;transform:translateZ(30px);position:relative;z-index:2}
+.kcard.k1 b{color:var(--blue)}.kcard.k2 b{color:var(--red)}.kcard.k3 b{color:var(--grn)}.kcard.k4 b{color:var(--amb)}
+.kcard span{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:1.1px;margin-top:9px;display:block;position:relative;z-index:2}
+
+.panorama{border:1px solid var(--gbrd);border-radius:24px;padding:26px 28px;background:var(--glass);backdrop-filter:blur(18px) saturate(150%);box-shadow:var(--sh)}
+.panorama h3{font-family:'Sora';font-size:15px;font-weight:700}
+.panorama .psub{font-size:11.5px;color:var(--mut2);margin:4px 0 18px}
+.donutwrap{display:flex;align-items:center;gap:22px;margin-bottom:20px}
+.donut{--p:0;width:132px;height:132px;flex:none;border-radius:50%;position:relative;
+  background:conic-gradient(var(--grn) calc(var(--p)*1%), #f0c9c5 0);transition:--p 1.4s cubic-bezier(.2,.8,.2,1);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 12px 30px rgba(16,42,80,.14)}
+.donut:after{content:"";position:absolute;inset:16px;border-radius:50%;background:var(--glass-2);backdrop-filter:blur(6px);box-shadow:inset 0 2px 8px rgba(16,42,80,.08)}
+.donut .dc{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:1}
+.donut .dc b{font-family:'Space Grotesk';font-size:30px;color:var(--grn);line-height:1}
+.donut .dc small{font-size:9.5px;color:var(--mut);text-transform:uppercase;letter-spacing:1px;display:block;margin-top:2px}
+.dside{flex:1}
+.dstat{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.dstat:last-child{border-bottom:0}
+.dstat .sw{width:12px;height:12px;border-radius:4px;flex:none}
+.dstat .nm{font-size:12.5px;color:var(--mut);flex:1}
+.dstat .vl{font-family:'Space Grotesk';font-weight:700;font-size:16px}
+.pbars{margin-top:6px}
+.pbtitle{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--mut2);font-weight:700;margin-bottom:12px}
+.prow{display:flex;align-items:center;gap:12px;margin-bottom:12px;cursor:pointer}
+.prow .pl{font-family:'Space Grotesk';font-size:12px;font-weight:600;color:var(--blue-d);width:76px;flex:none}
+.ptrack{flex:1;height:14px;background:rgba(16,42,80,.06);border-radius:8px;overflow:hidden;display:flex}
+.seg{height:100%;width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.seg.ok{background:linear-gradient(90deg,#28c274,var(--grn))}
+.seg.no{background:linear-gradient(90deg,#ef5a4f,var(--red))}
+.prow .pv{font-family:'Space Grotesk';font-size:13px;font-weight:700;width:26px;text-align:right;flex:none}
+.prow:hover .pl{color:var(--red)}
+
+.tip{position:fixed;z-index:80;pointer-events:none;opacity:0;transform:translateY(8px);transition:opacity .15s,transform .15s;
+  background:rgba(13,19,32,.90);backdrop-filter:blur(10px) saturate(160%);color:#eaf0ff;padding:11px 14px;border-radius:13px;
+  font-size:12px;line-height:1.5;box-shadow:0 16px 40px rgba(0,0,0,.35);max-width:280px;border:1px solid rgba(255,255,255,.12)}
+.tip.on{opacity:1;transform:none}
+.tip .tt{font-family:'Sora';font-weight:700;font-size:12.5px;color:#fff;margin-bottom:5px}
+.tip .tk{display:flex;justify-content:space-between;gap:18px}
+.tip .tk .ok{color:#5fe0a0}.tip .tk .no{color:#ff8a80}.tip .tk .tot{color:#8fbcff}
+.tip .tk b{font-family:'Space Grotesk'}
+
+.sec-title{display:flex;align-items:center;gap:14px;margin:54px 2px 20px}
+.sec-title h2{font-family:'Sora';font-weight:700;font-size:23px}
+.sec-title .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.sec-title .hintc{font-size:12px;color:var(--mut2);font-weight:600}
+
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
+.fbtn{font-size:13px;font-weight:600;padding:10px 18px;border-radius:12px;border:1px solid var(--gbrd);background:var(--glass);backdrop-filter:blur(10px);color:var(--mut);cursor:pointer;transition:.25s;box-shadow:var(--sh)}
+.fbtn:hover{color:var(--ink);transform:translateY(-2px)}
+.fbtn.active{background:linear-gradient(120deg,var(--blue),var(--blue-d));color:#fff;border-color:transparent}
+
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;grid-auto-rows:minmax(172px,1fr)}
+.tile{transform-style:preserve-3d;position:relative;grid-column:span 6;border:1px solid var(--gbrd);border-radius:26px;background:var(--glass);backdrop-filter:blur(18px) saturate(150%);box-shadow:var(--sh);padding:28px 30px;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s,opacity .4s;will-change:transform}
+.tile.feat{grid-column:span 12;min-height:230px}
+.tile.wide{grid-column:span 12}
+.tile::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.6),transparent 40%);z-index:4}
+.tile:hover::after{opacity:1}
+.tile:hover{box-shadow:var(--sh2);border-color:#cfe0f4}
+.tile.hiding{opacity:0;transform:scale(.92)!important}
+.tile.hidden{display:none}
+.tile .ghost{position:absolute;right:-4px;top:-30px;font-family:'Space Grotesk';font-weight:700;font-size:132px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(10,86,168,.10);pointer-events:none;transition:.4s;transform:translateZ(10px)}
+.tile.feat .ghost{font-size:190px;top:-40px}
+.tile:hover .ghost{-webkit-text-stroke-color:rgba(10,86,168,.20)}
+.tile .accent{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--blue),var(--red));transform:scaleY(0);transform-origin:top;transition:.45s;z-index:2}
+.tile:hover .accent{transform:scaleY(1)}
+.tile .tstate{position:absolute;top:22px;right:24px;font-size:10.5px;font-weight:700;padding:5px 11px;border-radius:20px;transform:translateZ(40px);z-index:5}
+.tstate.ok{color:var(--grn);background:var(--grn-l);border:1px solid #b8e6cb}
+.tstate.no{color:var(--red);background:var(--red-l);border:1px solid #f6c9c4}
+.tstate.mix{color:var(--amb);background:#fdf3e0;border:1px solid #f0d8a8}
+.tile .tlabel{font-family:'Space Grotesk';font-size:12.5px;font-weight:600;color:var(--blue);letter-spacing:.4px;position:relative;z-index:2;transform:translateZ(45px)}
+.tile .ttitle{font-family:'Sora';font-weight:700;font-size:17.5px;line-height:1.32;margin-top:10px;position:relative;z-index:2;max-width:88%;transform:translateZ(30px)}
+.tile.feat .ttitle{font-size:25px;line-height:1.24;margin-top:12px;max-width:74%}
+.tile .tmeta{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;position:relative;z-index:2;transform:translateZ(24px)}
+.tchip{font-size:11px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.55);border:1px solid var(--line);color:var(--mut);font-weight:500}
+.tchip.b{background:var(--blue-l);border-color:#cfe0f4;color:var(--blue);font-weight:600}
+.tile .tgo{position:relative;z-index:2;margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--red);opacity:0;transform:translateX(-8px) translateZ(40px);transition:.35s}
+.tile:hover .tgo{opacity:1;transform:translateZ(40px)}
+.tile.feat .tdesc{font-size:13px;color:var(--mut);line-height:1.55;margin-top:12px;position:relative;z-index:2;max-width:70%;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transform:translateZ(20px)}
+
+.scrim{position:fixed;inset:0;z-index:39;background:rgba(9,16,32,.55);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:.45s}
+.scrim.open{opacity:1;pointer-events:auto}
+.off{position:fixed;top:0;right:0;height:100vh;width:min(760px,96vw);z-index:41;background:var(--glass-2);backdrop-filter:blur(24px) saturate(150%);border-left:1px solid var(--gbrd);box-shadow:-34px 0 90px rgba(9,16,32,.34);transform:translateX(102%);transition:transform .55s cubic-bezier(.3,.85,.2,1);overflow-y:auto}
+.off.open{transform:none}
+.offtop{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;padding:16px 26px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.72);backdrop-filter:blur(16px)}
+.close{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:17px;color:var(--ink);box-shadow:var(--sh);transition:.25s}
+.close:hover{background:var(--red);color:#fff;border-color:var(--red);transform:rotate(90deg)}
+.offtop .dcount{font-family:'Space Grotesk';font-size:12.5px;color:var(--mut);font-weight:600}
+.offtop .spacer{flex:1}
+.dnav{display:flex;gap:8px}
+.dnav button{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:16px;color:var(--ink);box-shadow:var(--sh);transition:.25s}
+.dnav button:hover:not(:disabled){background:var(--blue);color:#fff;border-color:var(--blue)}
+.dnav button:disabled{opacity:.3;cursor:default}
+.offbody{padding:26px 30px 70px}
+
+.hero{position:relative;border:1px solid var(--gbrd);border-radius:24px;padding:30px 32px;overflow:hidden;background:var(--glass);box-shadow:var(--sh)}
+.hero:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(var(--blue),var(--red))}
+.hero .bignum{position:absolute;right:20px;top:-26px;font-family:'Space Grotesk';font-weight:700;font-size:150px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(10,86,168,.09);pointer-events:none}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);font-weight:600;border:1px solid #cfe0f4;padding:6px 13px;border-radius:20px;background:var(--blue-l)}
+.doc-num{font-family:'Space Grotesk';font-size:15px;color:var(--blue-d);font-weight:700;margin:15px 0 8px}
+.title{font-family:'Sora';font-weight:800;font-size:24px;line-height:1.22;max-width:94%}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:7px 13px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.6);font-weight:500}
+.chip .dot{width:8px;height:8px;border-radius:50%}
+.st-ok{color:var(--grn)}.st-no{color:var(--red)}.st-mix{color:var(--amb)}
+.kstrip{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0}
+.ks{border:1px solid var(--gbrd);border-radius:16px;padding:16px 18px;background:var(--glass);box-shadow:var(--sh);position:relative;overflow:hidden}
+.ks:before{content:"";position:absolute;left:0;top:0;height:100%;width:4px}
+.ks.k1:before{background:var(--blue)}.ks.k2:before{background:var(--red)}.ks.k3:before{background:var(--grn)}.ks.k4:before{background:var(--amb)}
+.ks b{font-family:'Space Grotesk';font-size:26px;display:block;line-height:1}
+.ks.k1 b{color:var(--blue)}.ks.k2 b{color:var(--red)}.ks.k3 b{color:var(--grn)}.ks.k4 b{color:var(--amb)}
+.ks span{font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:1px;margin-top:5px;display:block}
+.sec-h{display:flex;align-items:center;gap:14px;margin:28px 2px 14px}
+.sec-h h3{font-family:'Sora';font-weight:700;font-size:16px}
+.sec-h .line{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.sec-h .cnt{font-size:12px;color:var(--mut2);font-weight:600}
+.recs{display:grid;gap:14px}
+.rec{border:1px solid var(--gbrd);border-left:5px solid var(--mut2);border-radius:18px;padding:20px 22px;background:var(--glass);box-shadow:var(--sh);transition:.3s}
+.rec.ok{border-left-color:var(--grn)}.rec.no{border-left-color:var(--red)}
+.rec:hover{box-shadow:var(--sh2)}
+.rec .head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.ring{--q:0;width:52px;height:52px;flex:none;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--blue) calc(var(--q)*1%),#e2e9f3 0);position:relative}
+.ring:after{content:"";position:absolute;inset:5px;border-radius:50%;background:#fff}
+.ring b{position:relative;font-family:'Space Grotesk';font-size:17px;z-index:1;color:var(--blue-d)}
+.rec .inst{flex:1}.rec .inst .who{font-family:'Sora';font-weight:700;font-size:14.5px}
+.rec .inst .meta{font-size:11px;color:var(--mut);margin-top:3px}
+.regc{font-weight:600;color:var(--mut);font-size:12px}
+.pill{font-size:10.5px;font-weight:700;padding:6px 12px;border-radius:20px;white-space:nowrap}
+.pill.ok{color:var(--grn);background:var(--grn-l);border:1px solid #b8e6cb}
+.pill.no{color:var(--red);background:var(--red-l);border:1px solid #f6c9c4}
+
+.verbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.verb{position:relative;font-family:'Sora';font-weight:700;font-size:11.5px;letter-spacing:.3px;color:var(--blue-d);background:var(--blue-l);border:1px solid #cfe0f4;padding:8px 13px;border-radius:11px;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:7px}
+.verb:hover{transform:translateY(-2px);box-shadow:var(--sh)}
+.verb i{font-style:normal;font-size:9px;background:#fff;color:var(--blue);min-width:16px;height:16px;padding:0 3px;border-radius:9px;display:grid;place-items:center;font-family:'Space Grotesk';border:1px solid #cfe0f4}
+.verb.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.verb.active i{background:rgba(255,255,255,.25);color:#fff;border-color:transparent}
+.bodies{margin-top:4px}
+.acc{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.3,.8,.2,1)}
+.acc.open{grid-template-rows:1fr;margin-top:10px}
+.acc-in{overflow:hidden}
+.acc-in p{font-size:13px;line-height:1.62;color:#2b3542;background:rgba(10,86,168,.045);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:10px;padding:13px 15px}
+.mlist{margin-top:14px;display:grid;gap:18px}
+.btag{display:inline-block;font-family:'Sora';font-weight:700;font-size:10.5px;color:var(--blue);background:var(--blue-l);border:1px solid #cfe0f4;padding:3px 9px;border-radius:8px;margin-bottom:8px}
+.regchips span em{font-style:normal;color:var(--mut2);font-weight:600}
+.mrow{border-left:2px solid var(--line);padding-left:14px}
+.mrow .mname{font-family:'Sora';font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.mrow .mname em{color:var(--mut);font-style:normal;font-weight:600;font-size:12px}
+.reglist{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px}
+.reglist summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--blue);list-style:none;outline:none}
+.reglist summary::-webkit-details-marker{display:none}
+.reglist summary:before{content:'\25B8  ';color:var(--red)}
+.reglist[open] summary:before{content:'\25BE  '}
+.regchips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.regchips span{font-size:11px;padding:5px 10px;border-radius:16px;background:var(--soft);border:1px solid var(--line);color:var(--mut)}
+.act{margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);display:flex;gap:11px}
+.act .k{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amb);white-space:nowrap;padding-top:2px;font-weight:700}
+.act .v{font-size:12.5px;color:var(--mut);line-height:1.55}
+.reveal{opacity:0;transform:translateY(16px)}
+.reveal.in{animation:riseIn .55s forwards cubic-bezier(.2,.7,.2,1)}
+.hint{position:fixed;bottom:14px;right:20px;z-index:38;font-size:11px;color:var(--mut2)}
+kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:11px;color:var(--mut);background:#fff}
+@media(max-width:900px){.overview{grid-template-columns:1fr}.mosaic{grid-template-columns:1fr}.tile,.tile.feat,.tile.wide{grid-column:span 1;grid-row:auto}.hometitle{font-size:34px}.off{width:100vw}}
+
+/* ===== SPA layout ===== */
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:266px;z-index:35;display:flex;flex-direction:column;padding:24px 18px;
+  background:linear-gradient(180deg,rgba(16,24,42,.93),rgba(10,16,30,.95));backdrop-filter:blur(22px) saturate(140%);
+  border-right:1px solid rgba(255,255,255,.08);box-shadow:16px 0 50px rgba(9,16,32,.20)}
+.sidebar .brand{background:#fff;border-radius:16px;padding:13px 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.sidebar .brand img{height:46px;width:auto}
+.navttl{color:rgba(255,255,255,.42);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;margin:26px 10px 12px}
+.menu{display:flex;flex-direction:column;gap:8px}
+.mitem{display:flex;align-items:center;gap:13px;padding:14px 15px;border-radius:14px;border:1px solid transparent;background:transparent;color:rgba(255,255,255,.72);cursor:pointer;transition:.25s;text-align:left;font-family:'Sora';font-weight:600;font-size:13px;width:100%}
+.mitem .mi-n{font-family:'Space Grotesk';font-size:12px;color:rgba(255,255,255,.34);font-weight:700}
+.mitem:hover{background:rgba(255,255,255,.07);color:#fff;transform:translateX(3px)}
+.mitem.active{background:linear-gradient(120deg,rgba(10,86,168,.92),rgba(8,59,115,.92));color:#fff;border-color:rgba(255,255,255,.14);box-shadow:0 12px 28px rgba(10,86,168,.42)}
+.mitem.active .mi-n{color:#8fbcff}
+.side-foot{margin-top:auto;text-align:center;padding-top:20px}
+.side-foot img{width:100%;max-width:158px;background:#fff;border-radius:12px;padding:9px;box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.side-foot p{color:rgba(255,255,255,.42);font-size:9.5px;line-height:1.45;margin-top:12px}
+.stage{margin-left:266px;position:relative;z-index:2;height:100vh;overflow:hidden}
+.slide{display:none}
+.slide.active{display:flex;flex-direction:column;height:100%;animation:slideIn .5s cubic-bezier(.2,.75,.2,1)}
+@keyframes slideIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.slidebox{max-width:1120px;margin:0 auto;padding:52px 46px 80px}
+.slidehead{margin-bottom:36px}
+.eyebrow2{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue);background:var(--glass);border:1px solid var(--gbrd);backdrop-filter:blur(10px);padding:7px 15px;border-radius:30px;box-shadow:var(--sh)}
+.eyebrow2 .pulse{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+.slidetitle{font-family:'Sora';font-weight:800;font-size:44px;line-height:1.08;letter-spacing:-1.1px;margin:20px 0 12px}
+.slidetitle .g{background:linear-gradient(100deg,var(--blue),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.slidesub{font-size:16px;color:var(--mut);max-width:660px;line-height:1.6}
+.phgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.phcard{position:relative;border:1.5px dashed #cdd6e2;border-radius:22px;padding:30px 30px;background:var(--glass);backdrop-filter:blur(12px) saturate(150%);min-height:172px;display:flex;flex-direction:column;box-shadow:var(--sh);transition:.3s;overflow:hidden}
+.phcard:hover{border-color:var(--blue);transform:translateY(-5px);box-shadow:var(--sh2)}
+.phcard .ph-n{font-family:'Space Grotesk';font-weight:700;font-size:13px;color:var(--blue)}
+.phcard h3{font-family:'Sora';font-weight:700;font-size:19px;line-height:1.28;margin:9px 0 auto;max-width:92%}
+.phcard .ph-ph{font-size:13px;color:var(--mut2);font-style:italic;margin-top:18px;display:flex;align-items:center;gap:9px}
+.phcard .ph-ph:before{content:'';width:9px;height:9px;border-radius:50%;background:var(--amb);box-shadow:0 0 0 4px rgba(196,125,0,.15)}
+.home{max-width:1200px;margin:0 auto;padding:44px 46px 90px}
+@media(max-width:980px){.sidebar{position:static;width:auto;flex-direction:row;align-items:center;gap:12px;padding:12px 14px}.sidebar .brand{padding:7px 9px}.sidebar .brand img{height:30px}.navttl,.side-foot{display:none}.menu{flex-direction:row;overflow-x:auto;flex:1}.mitem{white-space:nowrap;padding:11px 13px}.stage{margin-left:0}.slidebox{padding:32px 22px}.phgrid{grid-template-columns:1fr}.slidetitle{font-size:30px}}
+
+/* ===== sub-tabs & content ===== */
+.subhead{flex:none;width:100%;max-width:1200px;margin:0 auto;padding:22px 46px 0}
+.subtabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.subtab{position:relative;font-family:'Sora';font-weight:600;font-size:13px;color:var(--mut);background:transparent;border:0;padding:13px 16px;cursor:pointer;transition:.2s;border-bottom:2.5px solid transparent}
+.subtab .st-n{font-family:'Space Grotesk';font-size:11px;color:var(--mut2);margin-right:7px;font-weight:700}
+.subtab:hover{color:var(--ink)}
+.subtab.active{color:var(--blue)}
+.subtab.active .st-n{color:var(--blue)}
+.subtab.active:after{content:"";position:absolute;left:6px;right:6px;bottom:-1.5px;height:2.5px;background:linear-gradient(90deg,var(--blue),var(--red));border-radius:2px}
+.subpanel{display:none}
+.subpanel.active{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;animation:slideIn .45s cubic-bezier(.2,.75,.2,1)}
+.subpanel::-webkit-scrollbar{width:9px}
+.subpanel::-webkit-scrollbar-thumb{background:rgba(16,42,80,.18);border-radius:8px}
+.subpanel::-webkit-scrollbar-thumb:hover{background:rgba(16,42,80,.34)}
+.subpanel::-webkit-scrollbar-track{background:transparent}
+.subbox{max-width:1120px;margin:0 auto;padding:34px 46px 80px}
+.blocklead{font-size:15px;line-height:1.72;color:#2a3340;max-width:940px}
+.ch{font-family:'Sora';font-weight:700;font-size:17px;margin:34px 0 4px;display:flex;align-items:center;gap:11px}
+.ch .cn{font-family:'Space Grotesk';font-size:12px;color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue-d));padding:4px 9px;border-radius:8px}
+.csub{font-size:12.5px;color:var(--mut2);margin:2px 0 14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gcard{border:1px solid var(--gbrd);border-radius:20px;padding:22px 24px;background:var(--glass);backdrop-filter:blur(14px) saturate(150%);box-shadow:var(--sh);transition:.3s}
+.gcard:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+.gcard h4{font-family:'Sora';font-weight:700;font-size:14.5px;margin-bottom:9px;display:flex;align-items:center;gap:9px}
+.gcard h4 .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;font-size:14px;background:linear-gradient(135deg,var(--blue),var(--blue-d));flex:none}
+.gcard.r h4 .ic{background:linear-gradient(135deg,var(--red),#b41b13)}
+.gcard.g h4 .ic{background:linear-gradient(135deg,var(--grn),#0c7a41)}
+.gcard p{font-size:13px;line-height:1.6;color:#39424f}
+.metrics{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.metric{flex:1;min-width:130px;border:1px solid var(--line);border-left:4px solid var(--blue);background:rgba(255,255,255,.55);border-radius:13px;padding:14px 16px}
+.metric.g{border-left-color:var(--grn)}.metric.r{border-left-color:var(--red)}.metric.a{border-left-color:var(--amb)}
+.metric b{font-family:'Space Grotesk';font-size:24px;display:block;color:var(--ink);line-height:1}
+.metric .fl{font-family:'Space Grotesk';font-size:13px;font-weight:700}
+.metric span{font-size:11px;color:var(--mut);line-height:1.4;display:block;margin-top:6px}
+.arrow{font-weight:700}.arrow.dn{color:var(--grn)}.arrow.up{color:var(--blue)}
+.timeline{position:relative;margin-top:22px;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--blue),var(--red))}
+.tev{position:relative;margin-bottom:24px}
+.tev:before{content:"";position:absolute;left:-28px;top:3px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 0 0 4px rgba(10,86,168,.12)}
+.tev .ty{font-family:'Space Grotesk';font-weight:700;color:var(--blue);font-size:15px}
+.tev h4{font-family:'Sora';font-size:14.5px;margin:5px 0 8px}
+.tev ul{list-style:none;display:grid;gap:7px}
+.tev li{font-size:13px;line-height:1.55;color:#39424f;padding-left:17px;position:relative}
+.tev li:before{content:"";position:absolute;left:2px;top:7px;width:6px;height:6px;border-radius:2px;transform:rotate(45deg);background:var(--red)}
+.tev li b{color:var(--ink)}
+.tag2{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--amb);background:#fdf3e0;border:1px solid #f0d8a8;padding:5px 12px;border-radius:20px;margin:8px 0}
+.chipset{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.chipset span{font-size:12px;padding:8px 14px;border-radius:12px;background:var(--blue-l);border:1px solid #cfe0f4;color:var(--blue-d);font-weight:600}
+.arch{display:grid;gap:12px;margin-top:20px}
+.alvl{display:flex;align-items:center;gap:16px;border:1px solid var(--gbrd);border-radius:16px;padding:16px 20px;background:var(--glass);box-shadow:var(--sh);position:relative}
+.alvl .lv{font-family:'Space Grotesk';font-weight:700;font-size:12px;color:#fff;background:var(--blue);width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex:none}
+.alvl.rector .lv{background:linear-gradient(135deg,var(--red),#b41b13)}
+.alvl h4{font-family:'Sora';font-size:14px;margin-bottom:3px}
+.alvl p{font-size:12px;color:var(--mut);line-height:1.5}
+.aconn{height:14px;width:2px;background:var(--line);margin:-6px 0 -6px 39px}
+.scen{border:1px solid var(--gbrd);border-top:5px solid var(--mut2);border-radius:20px;padding:24px 26px;background:var(--glass);box-shadow:var(--sh);transition:.3s}
+.scen:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+.scen.a{border-top-color:var(--grn)}.scen.b{border-top-color:var(--amb)}.scen.c{border-top-color:var(--red)}
+.scen .sh{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.scen .sh h4{font-family:'Sora';font-size:16px}
+.prob{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:5px 11px;border-radius:20px}
+.prob.a{color:var(--grn);background:var(--grn-l);border:1px solid #b8e6cb}
+.prob.b{color:var(--amb);background:#fdf3e0;border:1px solid #f0d8a8}
+.prob.c{color:var(--red);background:var(--red-l);border:1px solid #f6c9c4}
+.scen p{font-size:13px;line-height:1.6;color:#39424f;margin-top:6px}
+.quote{border-left:4px solid var(--blue);background:rgba(10,86,168,.045);border-radius:12px;padding:16px 20px;font-size:14.5px;line-height:1.6;color:#26303c;font-style:italic;margin-top:4px}
+@media(max-width:980px){.grid2,.grid3{grid-template-columns:1fr}.subbox{padding:26px 22px 60px}.subhead{padding:20px 22px 0}}
+
+/* ===== charts & dynamic timeline ===== */
+.chart{width:100%;height:198px;margin-top:8px}
+.csvg{width:100%;height:100%;overflow:visible}
+.gcard.center{text-align:center;align-items:center}
+.gauge{width:122px;height:122px;margin:0 auto}
+.gsvg{width:122px;height:122px}
+.glbl{font-size:12px;color:var(--mut);margin-top:12px;font-weight:600;line-height:1.35}
+.timeline:before{transform:scaleY(0);transform-origin:top}
+.timeline.run:before{animation:tlgrow .9s ease forwards}
+@keyframes tlgrow{to{transform:scaleY(1)}}
+.timeline .tev{opacity:0;transform:translateX(-14px)}
+.timeline.run .tev{animation:tevin .55s forwards cubic-bezier(.2,.75,.2,1)}
+@keyframes tevin{to{opacity:1;transform:none}}
+
+/* ===== master-detail explorer (inspired by projection deck) ===== */
+.explorer{display:grid;grid-template-columns:310px 1fr;border:1px solid var(--gbrd);border-radius:22px;overflow:hidden;background:var(--glass);backdrop-filter:blur(14px) saturate(150%);box-shadow:var(--sh);margin-top:10px}
+.exp-list{display:flex;flex-direction:column;padding:12px;gap:6px;border-right:1px solid var(--line);max-height:540px;overflow:auto}
+.exp-tile{display:flex;align-items:center;gap:13px;padding:13px 14px;border-radius:13px;cursor:pointer;border-left:3px solid transparent;transition:.2s;user-select:none}
+.exp-tile:hover{background:rgba(10,86,168,.05)}
+.exp-tile.active{background:rgba(10,86,168,.08);border-left-color:var(--blue)}
+.exp-tile .ei{font-size:23px;flex:none;line-height:1}
+.exp-tile .en{font-family:'Sora';font-weight:600;font-size:13px;color:var(--ink);line-height:1.3}
+.exp-tile.active .en{color:var(--blue)}
+.exp-tile .em{font-size:11px;color:var(--mut2);margin-top:2px}
+.exp-detail{padding:32px 36px;display:flex;flex-direction:column;justify-content:center;min-height:320px}
+.exp-detail .dtop{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.exp-detail .dic{font-size:46px;line-height:1}
+.exp-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:6px 13px;border-radius:20px}
+.exp-tag.green{color:var(--grn);background:var(--grn-l);border:1px solid #b8e6cb}
+.exp-tag.red{color:var(--red);background:var(--red-l);border:1px solid #f6c9c4}
+.exp-tag.amber{color:var(--amb);background:#fdf3e0;border:1px solid #f0d8a8}
+.exp-tag.navy{color:var(--blue-d);background:var(--blue-l);border:1px solid #cfe0f4}
+.exp-detail .dt{font-family:'Sora';font-weight:800;font-size:22px;line-height:1.3;margin-bottom:11px;color:var(--ink)}
+.exp-detail .db{font-size:15px;line-height:1.78;color:#334155}
+.exp-detail .db b{color:var(--ink)}
+.fadeswap{animation:fadeswap .32s ease}
+@keyframes fadeswap{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+@media(max-width:860px){.explorer{grid-template-columns:1fr}.exp-list{flex-direction:row;overflow-x:auto;max-height:none}.exp-tile{min-width:220px}.exp-detail{padding:24px}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="gridlines"></div>
+
+<aside class="sidebar">
+  <div class="brand"><img src="__LOGO__" alt="Defensoría del Pueblo"></div>
+  <div class="navttl">Exposición · Alta Dirección</div>
+  <nav class="menu">
+    <button class="mitem" data-s="s-antecedentes"><span class="mi-n">01</span><span class="mi-l">Antecedentes</span></button>
+    <button class="mitem active" data-s="s-balance"><span class="mi-n">02</span><span class="mi-l">Balance de Informes</span></button>
+    <button class="mitem" data-s="s-fortalecimiento"><span class="mi-n">03</span><span class="mi-l">Fortalecimiento Institucional</span></button>
+    <button class="mitem" data-s="s-prospectiva"><span class="mi-n">04</span><span class="mi-l">Prospectiva Gubernamental</span></button>
+  </nav>
+  <div class="side-foot"><img src="__ANNIV__" alt="30 años Defendiendo tus derechos"><p>Adjuntía para la Prevención de Conflictos Sociales y la Gobernabilidad</p></div>
+</aside>
+
+<main class="stage">
+
+<section id="s-antecedentes" class="slide">
+  <div class="subhead">
+    <div class="slidehead">
+      <span class="eyebrow2"><span class="pulse"></span>01 · Antecedentes</span>
+      <h1 class="slidetitle">Antecedentes de la <span class="g">Adjuntía para la Prevención de Conflictos Sociales y la Gobernabilidad</span></h1>
+      <p class="slidesub">Consolidación de la labor defensorial 2023–2025: mandato, evolución institucional, supervisiones y casos emblemáticos de intervención.</p>
+    </div>
+    <div class="subtabs">
+      <button class="subtab active" data-t="a1"><span class="st-n">1.1</span>Objetivo</button>
+      <button class="subtab" data-t="a2"><span class="st-n">1.2</span>Evolución institucional</button>
+      <button class="subtab" data-t="a3"><span class="st-n">1.3</span>Supervisiones</button>
+      <button class="subtab" data-t="a4"><span class="st-n">1.4</span>Casos emblemáticos</button>
+    </div>
+  </div>
+
+  <div class="subpanel active" data-t="a1"><div class="subbox">
+    <p class="blocklead">La Adjuntía para la Prevención de Conflictos Sociales y la Gobernabilidad (ACSGO) ejerce el mandato constitucional de defender los derechos fundamentales en escenarios de conflictividad social, promoviendo el diálogo como mecanismo democrático y pacífico de resolución de controversias, con respaldo de la Ley N.° 32028.</p>
+    <div class="grid3" style="margin-top:22px">
+      <div class="gcard"><h4><span class="ic">◈</span>Alerta preventiva</h4><p>Anticipación temprana de escenarios de riesgo mediante monitoreo permanente de la conflictividad social a nivel nacional.</p></div>
+      <div class="gcard"><h4><span class="ic">◇</span>Mediación</h4><p>Facilitación del diálogo en espacios entre el Estado, la sociedad civil y las empresas para reconducir demandas a la vía institucional.</p></div>
+      <div class="gcard"><h4><span class="ic">✓</span>Supervisión y cumplimiento</h4><p>Seguimiento del cumplimiento de acuerdos y de las obligaciones del Estado, operado por tres unidades funcionales especializadas.</p></div>
+    </div>
+    <div class="ch"><span class="cn">1.1.1</span>Salvaguarda de la vida y desescalamiento</div>
+    <div class="metrics">
+      <div class="metric g"><span class="fl"><span class="arrow dn">▼</span> 39 → 4</span><span>Víctimas fatales en conflictos (2023 → 2025)</span></div>
+      <div class="metric g"><span class="fl"><span class="arrow dn">▼</span> 1365 → 201</span><span>Personas heridas (2023 → 2025)</span></div>
+      <div class="metric g"><span class="fl">71.9% → 59.9%</span><span>Conflictos con hechos de violencia (baja sostenida)</span></div>
+      <div class="metric"><b>89.8%</b><span>Presencia defensorial en mesas de diálogo</span></div>
+    </div>
+    <div class="grid2" style="margin-top:14px">
+      <div class="gcard"><h4>Víctimas fatales en conflictos</h4><div class="chart" id="ch-fall"></div></div>
+      <div class="gcard"><h4>Personas heridas en conflictos</h4><div class="chart" id="ch-her"></div></div>
+      <div class="gcard"><h4>Conflictos con hechos de violencia (%)</h4><div class="chart" id="ch-viol"></div></div>
+      <div class="gcard"><h4>Presencia de la Defensoría en mesas de diálogo (%)</h4><div class="chart" id="ch-pres"></div></div>
+    </div>
+    <div class="ch"><span class="cn">1.1.2</span>Capacidad operativa y preventiva</div>
+    <div class="metrics">
+      <div class="metric"><b>2 933</b><span>Intervenciones defensoriales en 2025 · <b class="arrow up">+14%</b> vs. 2023 (récord desde 2018)</span></div>
+      <div class="metric"><span class="fl"><span class="arrow up">+22%</span> 1936 → 2362</span><span>Supervisión preventiva</span></div>
+      <div class="metric"><span class="fl"><span class="arrow up">+64%</span> 323 → 529</span><span>Intermediación y mediación</span></div>
+    </div>
+    <div class="gcard" style="margin-top:14px"><h4>Actuaciones defensoriales por año · preventiva vs. mediación</h4><div class="chart" id="ch-act"></div></div>
+    <div class="ch"><span class="cn">1.1.3</span>Composición de la conflictividad</div>
+    <div class="metrics">
+      <div class="metric a"><b>249–277</b><span>Casos registrados por año (volumen estable)</span></div>
+      <div class="metric a"><span class="fl">60.6% → 46.2%</span><span>Peso de conflictos socioambientales (2023 → 2025); mayor preponderancia de demandas a los niveles de gobierno</span></div>
+    </div>
+    <div class="gcard" style="margin-top:14px"><h4>Peso de conflictos socioambientales (%)</h4><div class="chart" id="ch-socio"></div></div>
+  </div></div>
+
+  <div class="subpanel" data-t="a2"><div class="subbox">
+    <p class="blocklead">Tres años de consolidación estratégica: del liderazgo regional y el monitoreo de crisis (2023), al hito normativo de la Ley N.° 32028 y la reestructuración operativa (2024), hasta la estandarización defensorial y la transformación tecnológica (2025).</p>
+    <div class="timeline">
+      <div class="tev"><div class="ty">2023 · Cimientos y liderazgo estratégico</div><ul>
+        <li><b>Liderazgo Iberoamericano:</b> coordinación del Grupo Temático de Conflictividad Social de la FIO, consolidando al Perú como referente regional.</li>
+        <li><b>Monitoreo ininterrumpido:</b> 372 reportes diarios durante la crisis política y 12 reportes mensuales para la toma de decisiones del Estado.</li>
+      </ul></div>
+      <div class="tev"><div class="ty">2024 · Hito normativo y reestructuración</div><ul>
+        <li><b>Mandato legal histórico:</b> Ley N.° 32028 incorpora expresamente las atribuciones de prevención, monitoreo y mediación.</li>
+        <li><b>Especialización:</b> creación de tres unidades funcionales (Prevención y Alertas; Mediación; Cumplimiento de Acuerdos).</li>
+        <li><b>Estandarización:</b> dos protocolos pioneros de seguimiento a acuerdos; inicio de la supervisión nacional a las unidades de gestión de conflictos.</li>
+      </ul></div>
+      <div class="tev"><div class="ty">2025 · Estandarización y transformación tecnológica</div><ul>
+        <li><b>Lineamientos rectores</b> para intervención en protestas, mediación y alertas tempranas.</li>
+        <li><b>Observatorio de Conflictividad Social</b> (octubre 2025): dashboards en tiempo real e inteligencia artificial.</li>
+        <li><b>Supervisión Nacional a 1 935 entidades</b> (19 ministerios, 25 gobiernos regionales y 1 891 municipalidades) con apoyo del PNUD.</li>
+        <li><b>Despliegue en campo:</b> 58 actividades descentralizadas con impacto en más de 8 000 ciudadanos.</li>
+      </ul></div>
+    </div>
+  </div></div>
+
+  <div class="subpanel" data-t="a3"><div class="subbox">
+    <p class="blocklead">La supervisión es la vía principal de actuación de la Adjuntía para garantizar el cumplimiento de las obligaciones del Estado. En el trienio 2023–2025 se ejerció mediante dos enfoques complementarios de alto impacto.</p>
+    <div class="grid2" style="margin-top:22px">
+      <div class="gcard"><h4><span class="ic">◉</span>Control in situ en crisis</h4><p>Supervisión directa de la actuación gubernamental durante coyunturas de crisis, verificando el respeto de los derechos fundamentales en el terreno.</p></div>
+      <div class="gcard"><h4><span class="ic">▤</span>Evaluación de capacidades</h4><p>Diagnóstico de la capacidad institucional del Estado para gestionar la conflictividad social en los tres niveles de gobierno.</p></div>
+    </div>
+    <div class="ch"><span class="cn">Caso</span>Informe Defensorial N.° 001-2023-DP/APCSG</div>
+    <div class="gcard"><p>A pocas semanas del inicio de la actual gestión, la institución enfrentó su primera prueba operativa con las movilizaciones del <b>19 de julio de 2023</b>. Se desplegó un operativo de gran escala movilizando a cerca de <b>300 comisionados</b> en todo el país, reflejando la capacidad de reacción inmediata ante riesgos críticos para los derechos ciudadanos.</p></div>
+  </div></div>
+
+  <div class="subpanel" data-t="a4"><div class="subbox">
+    <p class="blocklead">La eficacia de la Adjuntía se materializa en la gestión directa de crisis de alta complejidad, ejerciendo la persuasión para garantizar derechos, evitar la escalada de la violencia y reconducir las demandas hacia la vía institucional. Selecciona un caso para ver el detalle.</p>
+    <div class="explorer" id="exp-casos"></div>
+  </div></div>
+</section>
+
+<section id="s-balance" class="slide active">
+  <div class="subhead">
+    <div class="subtabs">
+      <button class="subtab active" data-t="b1"><span class="st-n">2.1</span>Informes y recomendaciones</button>
+      <button class="subtab" data-t="b2"><span class="st-n">2.2</span>Balance general</button>
+    </div>
+  </div>
+  <div class="subpanel active" data-t="b1">
+<div class="home">
+  <span class="eyebrow rise"><span class="pulse"></span>Defendiendo tus derechos · 2023–2026</span>
+  <div class="hometitle rise" style="animation-delay:.06s">Informes que <span class="g">transforman</span><br>la gestión de conflictos</div>
+  <p class="homesub rise" style="animation-delay:.12s">Panel interactivo de los informes defensoriales de la Adjuntía: objetivos, público beneficiario y las recomendaciones dirigidas a cada institución del Estado, con su nivel de acogida.</p>
+
+  <div class="overview">
+    <div class="kpis scene">
+      <div class="kcard k1 rise" style="animation-delay:.18s"><div class="ico">▤</div><b id="ov1">0</b><span>Informes defensoriales</span></div>
+      <div class="kcard k2 rise" style="animation-delay:.26s"><div class="ico">◆</div><b id="ov2">0</b><span>Recomendaciones</span></div>
+      <div class="kcard k3 rise" style="animation-delay:.34s"><div class="ico">◎</div><b id="ov3">0</b><span>Instituciones alcanzadas</span></div>
+      <div class="kcard k4 rise" style="animation-delay:.42s"><div class="ico">✓</div><b id="ov4">0</b><span>Recomendaciones acogidas</span></div>
+    </div>
+    <div class="panorama rise" style="animation-delay:.5s">
+      <h3>Panorama de recomendaciones</h3>
+      <div class="psub">Nivel de acogida del Estado y distribución por informe · pasa el cursor sobre las barras</div>
+      <div class="donutwrap">
+        <div class="donut" id="donut"><div class="dc"><b id="dpct">0%</b><small>Acogidas</small></div></div>
+        <div class="dside">
+          <div class="dstat"><span class="sw" style="background:var(--grn)"></span><span class="nm">Acogidas</span><span class="vl" id="dok" style="color:var(--grn)">0</span></div>
+          <div class="dstat"><span class="sw" style="background:var(--red)"></span><span class="nm">No acogidas</span><span class="vl" id="dno" style="color:var(--red)">0</span></div>
+          <div class="dstat"><span class="sw" style="background:var(--blue)"></span><span class="nm">Total emitidas</span><span class="vl" id="dtot" style="color:var(--blue)">0</span></div>
+        </div>
+      </div>
+      <div class="pbars"><div class="pbtitle">Recomendaciones por informe</div><div id="prows"></div></div>
+    </div>
+  </div>
+
+  <div class="sec-title rise" style="animation-delay:.58s"><h2>Explora los informes</h2><div class="ln"></div><div class="hintc">Haz clic en una tarjeta para abrir el detalle →</div></div>
+  <div class="filters rise" style="animation-delay:.62s" id="filters"></div>
+  <div class="mosaic scene" id="mosaic"></div>
+</div>
+  </div>
+  <div class="subpanel" data-t="b2"><div class="subbox">
+    <p class="blocklead">Balance agregado de los 8 informes emitidos entre 2023 y 2026: una producción documental amplia y diversa que formula 165 recomendaciones a 45 instituciones distintas, con una tasa de acogida global del 8%.</p>
+    <div class="ch"><span class="cn">2.2.1</span>Indicadores agregados</div>
+    <div class="metrics">
+      <div class="metric"><b>8</b><span>Informes y documentos (todos publicados)</span></div>
+      <div class="metric"><b>45</b><span>Instituciones destinatarias distintas (incl. 25 gobiernos regionales)</span></div>
+      <div class="metric"><b>165</b><span>Recomendaciones formuladas</span></div>
+      <div class="metric g"><b>14 · 8%</b><span>Recomendaciones acogidas</span></div>
+      <div class="metric r"><b>151 · 92%</b><span>Recomendaciones no acogidas</span></div>
+      <div class="metric r"><b>5 de 8</b><span>Informes con 0% de acogida (1, 5, 6, 7 y 8)</span></div>
+      <div class="metric g"><b>1 de 8</b><span>Informe con acogida total (Informe 3 — Minam)</span></div>
+    </div>
+    <div class="ch"><span class="cn">2.2.4</span>Análisis general del cumplimiento</div>
+    <div class="grid2">
+      <div class="gcard"><h4><span class="ic">◆</span>El peso del Informe 5</h4><p>La baja tasa global se explica en gran medida por el Informe 5: sus <b>130 recomendaciones (79% del total)</b> no fueron acogidas por ninguna de las 30 instituciones supervisadas (Congreso, PCM, Ceplan, 10 ministerios y 25 gobiernos regionales).</p></div>
+      <div class="gcard g"><h4><span class="ic">✓</span>Un panorama más matizado</h4><p>Al excluir el efecto de escala del Informe 5: el Informe 3 mantiene acogida total, el Informe 4 mejoró de 40% a <b>70%</b> (la PCM aceptó transición de gobierno) y el Informe 2 pasó de 0% a <b>33%</b> (el INDECI acogió su recomendación técnica).</p></div>
+      <div class="gcard r"><h4><span class="ic">◈</span>Brechas persistentes</h4><p>La Policía Nacional no acogió ninguna de sus 5 recomendaciones (Informes 1 y 4); el <b>Ministerio de Energía y Minas</b> acumula 3 informes consecutivos (2, 7 y 8) sin acoger ninguna; y ni los 25 gobiernos regionales ni los 10 ministerios del Informe 5 acogieron sus recomendaciones.</p></div>
+      <div class="gcard"><h4><span class="ic">▤</span>Comportamiento mixto y seguimiento</h4><p>La PCM acogió el Informe 4 (coyuntura) pero no el 5 (reforma estructural). Frente a la no acogida, la Adjuntía mantiene oficios de insistencia y escala hacia un <b>proyecto de ley propio</b> para crear el Sistema Nacional de Prevención y Gestión de Conflictos Sociales.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<section id="s-fortalecimiento" class="slide">
+  <div class="subhead">
+    <div class="slidehead">
+      <span class="eyebrow2"><span class="pulse"></span>03 · Fortalecimiento Institucional</span>
+      <h1 class="slidetitle">Fortalecimiento para la <span class="g">prevención y gestión</span> de conflictos</h1>
+      <p class="slidesub">Dos apuestas estratégicas para consolidar la institucionalidad: el Observatorio de Conflictividad Social y un Sistema Nacional articulado.</p>
+    </div>
+    <div class="subtabs">
+      <button class="subtab active" data-t="c1"><span class="st-n">3.1</span>Observatorio de conflictividad</button>
+      <button class="subtab" data-t="c2"><span class="st-n">3.2</span>Sistema Nacional (SINAGECOS)</button>
+    </div>
+  </div>
+
+  <div class="subpanel active" data-t="c1"><div class="subbox">
+    <div class="quote">Transformar la gestión de crisis en una cultura de inteligencia preventiva mediante el uso estratégico de la tecnología.</div>
+    <div class="ch"><span class="cn">3.1.1</span>Evolución de la gestión en la Defensoría del Pueblo</div>
+    <div class="timeline">
+      <div class="tev"><div class="ty">1996 · Atención general</div><ul><li>Herramientas tradicionales de investigación sobre violaciones a derechos humanos (quejas, petitorios y consultas).</li></ul></div>
+      <div class="tev"><div class="ty">2004 · Monitoreo especializado</div><ul><li>Primer Reporte Mensual de Conflictos Sociales. Desde entonces, <b>268 reportes</b> publicados de forma ininterrumpida.</li></ul></div>
+      <div class="tev"><div class="ty">2016–2023 · Digitalización</div><ul><li>Bases de datos sólidas, dashboards y mapas interactivos: lectura geoespacial de los focos de tensión.</li></ul></div>
+      <div class="tev"><div class="ty">2024–2026 · IA y prospectiva en tiempo real</div><ul><li>El Observatorio se proyecta como plataforma <b>predictiva</b>: patrones ocultos, alertas tempranas automatizadas y proyección de escenarios de riesgo.</li></ul></div>
+    </div>
+    <div class="ch"><span class="cn">3.1.2</span>Inteligencia artificial en tres frentes</div>
+    <div class="grid3">
+      <div class="gcard"><h4><span class="ic">◈</span>Análisis de patrones</h4><p>Algoritmos que identifican causas raíz y tendencias históricas de las protestas.</p></div>
+      <div class="gcard"><h4><span class="ic">◇</span>Redacción asistida</h4><p>Generación automatizada de borradores de reportes mensuales y boletines de prensa.</p></div>
+      <div class="gcard"><h4><span class="ic">◎</span>Escucha social</h4><p>Evaluación del sentimiento en redes digitales para comprender la percepción y demandas ciudadanas.</p></div>
+    </div>
+    <div class="ch"><span class="cn">3.1.3</span>Alineamiento a instrumentos</div>
+    <div class="chipset">
+      <span>Ley de Fortalecimiento · Política General DP</span><span>PEDN al 2050</span><span>Acuerdo Nacional · Política N.° 4</span><span>ODS 16 · ONU</span>
+    </div>
+    <div class="ch"><span class="cn">3.1.4</span>Metas de impacto proyectadas</div>
+    <div class="grid3">
+      <div class="gcard center"><div class="gauge" id="g1"></div><p class="glbl">Precisión en alertas tempranas</p></div>
+      <div class="gcard center"><div class="gauge" id="g2"></div><p class="glbl">Reducción del escalamiento de conflictos</p></div>
+      <div class="gcard center"><div class="gauge" id="g3"></div><p class="glbl">Trazabilidad en el cumplimiento de acuerdos</p></div>
+    </div>
+    <div class="ch"><span class="cn">3.1.5</span>Avances en la implementación</div>
+    <div class="grid2">
+      <div class="gcard"><h4><span class="ic">▤</span>8 fases de despliegue</h4><p>Infraestructura y seguridad, procesos clave, análisis y visualización, automatización, difusión y evaluación, y cierre y sostenibilidad.</p></div>
+      <div class="gcard g"><h4><span class="ic">✓</span>Estado actual</h4><p>Con apoyo del <b>PNUD</b>, entre agosto y diciembre de 2025 se desarrollaron las 3 primeras fases (en prueba). En <b>febrero de 2026</b> inició un piloto en 11 oficinas defensoriales, previo al despliegue nacional.</p></div>
+    </div>
+  </div></div>
+
+  <div class="subpanel" data-t="c2"><div class="subbox">
+    <p class="blocklead">La Defensoría del Pueblo se proyecta a presentar ante el Congreso un proyecto de ley para crear el <b>Sistema Nacional de Prevención y Gestión de Conflictos Sociales (SINAGECOS)</b>, articulando en los tres niveles de gobierno la alerta preventiva, la mediación, la promoción del diálogo y el seguimiento de acuerdos.</p>
+    <div class="ch"><span class="cn">Arquitectura</span>Diseño institucional del Sistema</div>
+    <div class="arch">
+      <div class="alvl rector"><div class="lv">Rector</div><div><h4>Defensoría del Pueblo · Ente Rector</h4><p>Rectoría reconocida por la Ley N.° 32028 en prevención, monitoreo y mediación.</p></div></div>
+      <div class="aconn"></div>
+      <div class="alvl"><div class="lv">01</div><div><h4>CONAGECOS · Consejo Nacional</h4><p>Máximo nivel de coordinación, presidido por el Defensor del Pueblo (PCM, Interior, Ministerio Público, PNP, ANGR y AMPE).</p></div></div>
+      <div class="aconn"></div>
+      <div class="alvl"><div class="lv">02</div><div><h4>COREGECOS · Consejos Regionales</h4><p>En cada región, el Callao y Lima Metropolitana, presididos por las Oficinas Defensoriales.</p></div></div>
+      <div class="aconn"></div>
+      <div class="alvl"><div class="lv">03</div><div><h4>Unidades de Gestión + SIRICS</h4><p>Fortalecimiento de las UGCS en ministerios, gobiernos regionales y locales, y creación del Sistema Integrado de Registro e Información (SIRICS).</p></div></div>
+    </div>
+    <div class="ch"><span class="cn">Diagnóstico</span>Institucionalidad fragmentada (Informe N.° 279)</div>
+    <div class="metrics">
+      <div class="metric r"><b>52%</b><span>Gobiernos regionales con unidad formal de gestión de conflictos</span></div>
+      <div class="metric r"><b>53%</b><span>Ministerios analizados con unidad formalmente establecida</span></div>
+      <div class="metric a"><b>90 días</b><span>Plazo para instalar el CONAGECOS tras la vigencia de la norma</span></div>
+    </div>
+    <div class="grid2">
+      <div class="gcard"><h4>Entidades con unidad de gestión de conflictos (%)</h4><div class="chart" id="ch-ugcs"></div></div>
+      <div class="gcard"><h4>Gobiernos regionales con unidad · 2022 → 2025</h4><div class="chart" id="ch-ugcsreg"></div></div>
+    </div>
+    <p class="csub" style="margin-top:10px">* Supervisión Nacional 2025 (con apoyo del PNUD) a 1 935 entidades: 19 ministerios, 25 gobiernos regionales y 1 891 municipalidades.</p>
+    <p class="blocklead" style="margin-top:18px">La propuesta recoge experiencias previas (Sistema Nacional de Seguridad Ciudadana y de Justicia en Flagrancia) y representa un paso decisivo para superar la dispersión institucional, dotando al Estado de un sistema articulado, preventivo y con enfoque de derechos humanos.</p>
+  </div></div>
+</section>
+
+<section id="s-prospectiva" class="slide">
+  <div class="subhead">
+    <div class="slidehead">
+      <span class="eyebrow2"><span class="pulse"></span>04 · Prospectiva Gubernamental</span>
+      <h1 class="slidetitle">Prospectiva de la <span class="g">conflictividad social</span> para el gobierno entrante</h1>
+      <p class="slidesub">Fotografía de la conflictividad a junio de 2026 y escenarios de riesgo proyectados para la transición gubernamental.</p>
+    </div>
+    <div class="subtabs">
+      <button class="subtab active" data-t="d1"><span class="st-n">4.1</span>Escenario actual · junio 2026</button>
+      <button class="subtab" data-t="d2"><span class="st-n">4.2</span>Escenarios de riesgo</button>
+    </div>
+  </div>
+
+  <div class="subpanel active" data-t="d1"><div class="subbox">
+    <p class="blocklead">La conflictividad mantiene un carácter estructural, pero se encuentra temporalmente contenida gracias a un despliegue preventivo sostenido. Al cierre de junio de 2026 se registran 197 conflictos, y durante el mes <b>no se registró ninguna persona fallecida ni herida</b>.</p>
+    <div class="metrics">
+      <div class="metric"><b>197</b><span>Conflictos sociales · 151 activos (76.6%) y 46 latentes</span></div>
+      <div class="metric a"><b>211</b><span>Acciones de protesta en un solo mes (sin víctimas)</span></div>
+      <div class="metric g"><b>95.6%</b><span>Presencia garante en las 90 mesas de diálogo activas</span></div>
+      <div class="metric g"><b>57.4%</b><span>Conflictos con violencia (baja vs. 59.9% de 2025)</span></div>
+      <div class="metric"><b>274</b><span>Actuaciones defensoriales en junio (~73% preventivas)</span></div>
+      <div class="metric"><b>6</b><span>Conflictos nuevos aparecidos en el mes</span></div>
+    </div>
+    <div class="ch"><span class="cn">Tipo</span>Composición de la conflictividad</div>
+    <div class="grid3">
+      <div class="gcard"><h4><span class="ic">◈</span>Socioambiental · 48.7%</h4><p>96 casos; el 63.5% vinculado a minería y el 18.8% a hidrocarburos. Sector determinante para la paz social y la inversión.</p></div>
+      <div class="gcard"><h4><span class="ic">▤</span>Demandas de gobierno · 35%</h4><p>Nacional (19.3%), regional (8.6%) y local (7.1%): expectativas insatisfechas por obras, servicios e incumplimientos.</p></div>
+      <div class="gcard r"><h4><span class="ic">◆</span>Frente educativo emergente</h4><p>Universidades públicas (San Marcos, Ucayali, Cajamarca, Del Santa) por infraestructura, cobros y gobernanza.</p></div>
+    </div>
+    <div class="ch"><span class="cn">Competencias</span>Responsabilidad resolutiva y geografía</div>
+    <div class="grid2">
+      <div class="gcard"><h4><span class="ic">◉</span>Responsabilidad resolutiva</h4><p>Casi <b>2 de cada 3 conflictos (64.5%, 127 casos)</b> son competencia directa del Gobierno Nacional; el resto se reparte entre gobiernos regionales (24.9%), locales (8.1%) y organismos autónomos (2.0%).</p></div>
+      <div class="gcard"><h4><span class="ic">◎</span>Concentración territorial</h4><p>Cinco regiones concentran el <b>45.7% (90 casos)</b>: <b>Loreto, Puno, Áncash, Piura y Cusco</b>.</p></div>
+    </div>
+    <div class="ch"><span class="cn">▧</span>Distribución en gráficos</div>
+    <div class="grid2">
+      <div class="gcard"><h4>Composición por tipo de conflicto (%)</h4><div class="chart" id="ch-tipo"></div></div>
+      <div class="gcard"><h4>Responsabilidad resolutiva por nivel (%)</h4><div class="chart" id="ch-comp"></div></div>
+    </div>
+  </div></div>
+
+  <div class="subpanel" data-t="d2"><div class="subbox">
+    <p class="blocklead">Al cruzar las series históricas con la data actual: la violencia disminuye progresivamente, pero el ritmo de aparición de nuevos conflictos se acelera (de 28 anuales en 2023 a 81 en 2025).</p>
+    <div class="metrics">
+      <div class="metric g"><span class="fl">71.9% → 57.4%</span><span>Conflictos con violencia: caída ininterrumpida</span></div>
+      <div class="metric a"><span class="fl"><span class="arrow up">▲</span> 28 → 81</span><span>Conflictos nuevos por año (del 11% al 29% del total)</span></div>
+    </div>
+    <div class="grid2">
+      <div class="gcard"><h4>Conflictos con violencia (%) · 2023–2026</h4><div class="chart" id="ch-viol2"></div></div>
+      <div class="gcard"><h4>Conflictos nuevos por año</h4><div class="chart" id="ch-nuevos"></div></div>
+    </div>
+    <div class="ch"><span class="cn">Escenarios</span>Proyección a 12 meses</div>
+    <div class="csub">Del más probable al de mayor impacto.</div>
+    <div class="csub">Del más probable al de mayor impacto. Selecciona un escenario para ver el análisis completo.</div>
+    <div class="explorer" id="exp-escenarios"></div>
+  </div></div>
+</section>
+
+</main>
+
+<div class="scrim" id="scrim" onclick="closeDetail()"></div>
+<aside class="off" id="off"><div id="offInner"></div></aside>
+<div class="tip" id="tip"></div>
+<div class="hint">Panel: <kbd>&larr;</kbd> <kbd>&rarr;</kbd> &middot; <kbd>Esc</kbd> cerrar</div>
+
+<script>
+const DOCS = __DATA__;
+const sc=s=>(s||'').toLowerCase().includes('no')?'no':'ok';
+const splitRecs=t=>!t?[]:t.split(/\n+/).map(x=>x.trim()).filter(x=>x.length>2);
+const recSum=d=>d.recs.reduce((s,r)=>s+(Number(r.total)||0),0);
+const okRecs=d=>d.recs.reduce((s,r)=>s+(sc(r.estado_rec)==='ok'?(Number(r.total)||0):0),0);
+const noRecs=d=>d.recs.reduce((s,r)=>s+(sc(r.estado_rec)==='no'?(Number(r.total)||0):0),0);
+const acogInst=d=>d.recs.filter(r=>sc(r.estado_rec)==='ok').length;
+const docState=d=>{const okc=acogInst(d),n=d.recs.length;if(okc===0)return{cls:'no',text:'No acogida'};if(okc===n)return{cls:'ok',text:'Acogida'};return{cls:'mix',text:okc+' de '+n+' acogidas'};};
+const RX=/^[\s]*[IVXLC0-9]+[\.\)º°]*\s*/;
+function verbOf(t){let s=(t||'').replace(RX,'').trim();let w=(s.split(/\s+/)[0]||'').replace(/[^0-9A-Za-zÀ-ſ]/g,'');return (w||'Ver').toUpperCase();}
+function verbBlock(texts,tags){
+  const chips=texts.map((t,k)=>`<button class="verb" data-k="${k}">${verbOf(t)}<i>${k+1}</i></button>`).join('');
+  const bodies=texts.map((t,k)=>`<div class="acc" data-k="${k}"><div class="acc-in">${tags&&tags[k]?'<span class="btag">'+tags[k]+'</span>':''}<p>${t.replace(RX,'')}</p></div></div>`).join('');
+  return `<div class="verbwrap"><div class="verbs">${chips}</div><div class="bodies">${bodies}</div></div>`;
+}
+function buildDisp(d){
+  const out=[],fam={};
+  d.recs.forEach(r=>{
+    const low=(r.institucion||'').trim().toLowerCase();
+    let key=null;
+    if(low.startsWith('gobierno regional'))key='reg';
+    else if(low.startsWith('ministerio de')||low.startsWith('ministerio del'))key='min';
+    if(key){(fam[key]=fam[key]||[]).push(r);}else out.push(r);
+  });
+  Object.keys(fam).forEach(k=>{
+    const arr=fam[k];
+    if(arr.length>=3){
+      out.push({_group:k,institucion:k==='reg'?'Gobiernos Regionales':'Ministerios',
+        estado_rec:arr[0].estado_rec,acciones:arr[0].acciones,_count:arr.length,
+        _totalRecs:arr.reduce((s,x)=>s+(Number(x.total)||0),0),
+        total:k==='reg'?arr[0].total:undefined,texto:arr[0].texto,
+        _items:arr.map(x=>({name:(x.institucion||'').trim(),total:x.total,texto:x.texto,estado_rec:x.estado_rec}))});
+    }else{arr.forEach(r=>out.push(r));}
+  });
+  return out;
+}
+const dispCount=d=>buildDisp(d).length;
+
+/* ===== count-up ===== */
+function countUp(el,to,ms,suf){if(!el)return;let n=0;const step=Math.max(1,Math.ceil(to/(ms/24)));const t=setInterval(()=>{n+=step;if(n>=to){n=to;clearInterval(t)}el.textContent=n+(suf||'');},24);}
+
+/* ===== panorama ===== */
+const prowsEl=document.getElementById('prows');
+function renderPanorama(list){
+  const maxRecs=Math.max(1,...list.map(recSum));
+  prowsEl.innerHTML=list.map((d)=>{
+    const ok=okRecs(d),no=noRecs(d),v=recSum(d);const i=DOCS.indexOf(d);
+    const tip=`<div class="tt">${d.short} · ${d.tipo}</div><div class="tk"><span class="ok">Acogidas</span><b class="ok">${ok}</b></div><div class="tk"><span class="no">No acogidas</span><b class="no">${no}</b></div><div class="tk"><span class="tot">Total</span><b class="tot">${v}</b></div>`;
+    return `<div class="prow" data-i="${i}" data-tip="${encodeURIComponent(tip)}"><span class="pl">${d.short}</span><div class="ptrack">
+      <span class="seg ok" data-w="${ok/maxRecs*100}"></span><span class="seg no" data-w="${no/maxRecs*100}"></span></div><span class="pv">${v}</span></div>`;
+  }).join('');
+  requestAnimationFrame(()=>prowsEl.querySelectorAll('.seg').forEach(s=>s.style.width=parseFloat(s.dataset.w)+'%'));
+}
+const tip=document.getElementById('tip');
+prowsEl.addEventListener('mousemove',e=>{const row=e.target.closest('.prow');if(!row){tip.classList.remove('on');return;}tip.innerHTML=decodeURIComponent(row.dataset.tip);let x=e.clientX+16,y=e.clientY+16;if(x+280>innerWidth)x=e.clientX-296;tip.style.left=x+'px';tip.style.top=y+'px';tip.classList.add('on');});
+prowsEl.addEventListener('mouseleave',()=>tip.classList.remove('on'));
+prowsEl.addEventListener('click',e=>{const row=e.target.closest('.prow');if(row)openDetail(+row.dataset.i);});
+
+/* ===== KPIs / donut recompute ===== */
+function recompute(list){
+  const inst=new Set();list.forEach(d=>d.recs.forEach(r=>inst.add((r.institucion||'').trim())));
+  const recs=list.reduce((a,d)=>a+recSum(d),0);
+  const ok=list.reduce((a,d)=>a+okRecs(d),0);
+  countUp(document.getElementById('ov1'),list.length,700);
+  countUp(document.getElementById('ov2'),recs,900);
+  countUp(document.getElementById('ov3'),inst.size,800);
+  countUp(document.getElementById('ov4'),ok,900);
+  const pct=recs?Math.round(ok/recs*100):0;
+  document.getElementById('donut').style.setProperty('--p',pct);
+  countUp(document.getElementById('dpct'),pct,1000,'%');
+  countUp(document.getElementById('dok'),ok,1000);
+  countUp(document.getElementById('dno'),recs-ok,1000);
+  countUp(document.getElementById('dtot'),recs,1000);
+  renderPanorama(list);
+}
+
+/* ===== mosaic ===== */
+const mosaic=document.getElementById('mosaic');
+function glare(el){
+  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const mx=e.clientX-r.left,my=e.clientY-r.top;el.style.setProperty('--mx',mx+'px');el.style.setProperty('--my',my+'px');
+    const px=(mx/r.width-.5),py=(my/r.height-.5);if(el.classList.contains('tile'))el.style.transform=`translateY(-8px) rotateX(${-py*5}deg) rotateY(${px*6}deg) translateZ(18px)`;});
+  el.addEventListener('mouseleave',()=>{if(el.classList.contains('tile'))el.style.transform='';});
+}
+DOCS.forEach((d,i)=>{
+  const ds=docState(d);const feat=i===0;const wide=(DOCS.length%2===0)&&(i===DOCS.length-1);
+  const t=document.createElement('div');
+  t.className='tile'+(feat?' feat':'')+(wide?' wide':'')+' rise';t.dataset.i=i;t.style.animationDelay=(.66+i*.08)+'s';
+  t.innerHTML=`<div class="accent"></div><div class="ghost">${String(i+1).padStart(2,'0')}</div>
+    <div class="tstate ${ds.cls}">${ds.text}</div>
+    <div class="tlabel">${d.label}</div>
+    <div class="ttitle">${d.titulo.replace(/\n/g,' ')}</div>
+    ${feat?`<div class="tdesc">${d.objetivo}</div>`:''}
+    <div class="tmeta"><span class="tchip b">${d.anio}</span><span class="tchip">${d.linea}</span><span class="tchip">${dispCount(d)} instituciones · ${recSum(d)} recom.</span></div>
+    <span class="tgo">Ver informe &rarr;</span>`;
+  t.onclick=()=>openDetail(i);glare(t);mosaic.appendChild(t);
+});
+document.querySelectorAll('.kcard').forEach(glare);
+
+/* ===== filters ===== */
+const years=[...new Set(DOCS.map(d=>d.anio))].sort();
+const FILTERS=[{k:'all',label:'Todos'},...years.map(y=>({k:'y'+y,label:'Año '+y})),{k:'acog',label:'Solo acogidas'}];
+function matchF(d,k){if(k==='all')return true;if(k==='acog')return acogInst(d)>0;if(k[0]==='y')return String(d.anio)===k.slice(1);return true;}
+const filtersEl=document.getElementById('filters');
+FILTERS.forEach((f,idx)=>{const b=document.createElement('button');b.className='fbtn'+(idx===0?' active':'');b.textContent=f.label;b.onclick=()=>applyFilter(f.k,b);filtersEl.appendChild(b);});
+let VIS=DOCS.slice();
+function applyFilter(k,btn){
+  filtersEl.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
+  const vis=[];
+  document.querySelectorAll('.tile').forEach(t=>{
+    const d=DOCS[+t.dataset.i];const ok=matchF(d,k);
+    if(ok){vis.push(d);t.classList.remove('hidden');requestAnimationFrame(()=>t.classList.remove('hiding'));}
+    else{t.classList.add('hiding');setTimeout(()=>t.classList.add('hidden'),380);}
+  });
+  VIS=vis.length?vis:DOCS;recompute(VIS);
+}
+
+/* ===== offcanvas detail ===== */
+const scrim=document.getElementById('scrim'),off=document.getElementById('off'),offInner=document.getElementById('offInner');
+let cur=-1;
+function detailHTML(i){
+  const d=DOCS[i];const disp=buildDisp(d);
+  const mx=Math.max(1,...disp.filter(r=>r._group!=='min').map(r=>Number(r.total)||0));
+  const recsHtml=disp.map(r=>{
+    const cls=sc(r.estado_rec);
+    const act=r.acciones?`<div class="act"><div class="k">Acciones futuras</div><div class="v">${r.acciones}</div></div>`:'';
+    if(r._group==='reg'){
+      const texts=splitRecs(r.texto);
+      const names=r._items.map(x=>`<span>${x.name}</span>`).join('');
+      const q=Math.round((Number(r.total)||0)/mx*100);
+      return `<div class="rec ${cls} reveal"><div class="head"><div class="ring" style="--q:${q}"><b>${r.total||'–'}</b></div>
+        <div class="inst"><div class="who">Gobiernos Regionales <span class="regc">(${r._count})</span></div><div class="meta">Las mismas ${r.total} recomendaciones aplicadas a los ${r._count} gobiernos regionales</div></div>
+        <div class="pill ${cls}">${r.estado_rec||'—'}</div></div>${verbBlock(texts)}
+        <details class="reglist"><summary>Ver los ${r._count} gobiernos regionales</summary><div class="regchips">${names}</div></details>${act}</div>`;
+    }
+    if(r._group==='min'){
+      const texts=[],tags=[];
+      r._items.forEach(m=>splitRecs(m.texto).forEach(tx=>{texts.push(tx);tags.push(m.name);}));
+      const names=r._items.map(x=>`<span>${x.name} <em>(${x.total})</em></span>`).join('');
+      return `<div class="rec ${cls} reveal"><div class="head"><div class="ring" style="--q:100"><b>${r._count}</b></div>
+        <div class="inst"><div class="who">Ministerios <span class="regc">(${r._count})</span></div><div class="meta">${r._totalRecs} recomendaciones · notificados a ${r._count} ministerios · pulsa un verbo</div></div>
+        <div class="pill ${cls}">${r.estado_rec||'—'}</div></div>${verbBlock(texts,tags)}
+        <details class="reglist"><summary>Ver los ${r._count} ministerios notificados</summary><div class="regchips">${names}</div></details>${act}</div>`;
+    }
+    const texts=splitRecs(r.texto);const q=Math.round((Number(r.total)||0)/mx*100);
+    return `<div class="rec ${cls} reveal"><div class="head"><div class="ring" style="--q:${q}"><b>${r.total||'–'}</b></div>
+      <div class="inst"><div class="who">${r.institucion||'—'}</div><div class="meta">${r.total||0} recomendación(es) dirigidas · pulsa un verbo para ver el detalle</div></div>
+      <div class="pill ${cls}">${r.estado_rec||'—'}</div></div>${verbBlock(texts)}${act}</div>`;
+  }).join('');
+  const ds=docState(d);
+  return `<div class="offtop">
+      <button class="close" onclick="closeDetail()">✕</button>
+      <span class="dcount">Informe ${String(i+1).padStart(2,'0')} / ${String(DOCS.length).padStart(2,'0')}</span>
+      <div class="spacer"></div>
+      <div class="dnav"><button id="dp">&larr;</button><button id="dn">&rarr;</button></div>
+    </div>
+    <div class="offbody">
+      <section class="hero reveal"><div class="bignum">${String(i+1).padStart(2,'0')}</div>
+        <span class="tag">&#9670; ${d.tipo} &middot; ${d.estado}</span>
+        <div class="doc-num">${d.label}</div>
+        <div class="title">${d.titulo.replace(/\n/g,' ')}</div>
+        <div class="chips">
+          <span class="chip"><span class="dot" style="background:var(--blue)"></span>Año ${d.anio}</span>
+          <span class="chip"><span class="dot" style="background:var(--blue-d)"></span>Publicado ${d.fecha||'—'}</span>
+          <span class="chip"><span class="dot" style="background:var(--red)"></span>${d.linea}</span>
+          <span class="chip ${ds.cls==='ok'?'st-ok':ds.cls==='no'?'st-no':'st-mix'}"><span class="dot" style="background:${ds.cls==='ok'?'var(--grn)':ds.cls==='no'?'var(--red)':'var(--amb)'}"></span>${ds.text}</span>
+        </div></section>
+      <div class="kstrip">
+        <div class="ks k1"><b>${dispCount(d)}</b><span>Instituciones</span></div>
+        <div class="ks k2"><b>${recSum(d)}</b><span>Recomendaciones</span></div>
+        <div class="ks k3"><b>${acogInst(d)}</b><span>Entidades con acogida</span></div>
+        <div class="ks k4"><b>${d.anio}</b><span>Año de publicación</span></div>
+      </div>
+      <div class="panel reveal" style="border:1px solid var(--gbrd);border-radius:18px;padding:22px 24px;background:var(--glass);box-shadow:var(--sh)"><div style="font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);margin-bottom:12px;font-weight:700">◉ Objetivo del documento</div><p style="font-size:14px;line-height:1.65;color:#2a3340">${d.objetivo}</p></div>
+      <div class="panel reveal" style="border:1px solid var(--gbrd);border-radius:18px;padding:22px 24px;background:var(--glass);box-shadow:var(--sh);margin-top:14px"><div style="font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);margin-bottom:12px;font-weight:700;color:var(--red)">❖ Público beneficiario</div><p style="font-size:14px;line-height:1.65;color:#2a3340">${d.publico}</p></div>
+      <div class="sec-h"><h3>Recomendaciones por institución</h3><div class="line"></div><div class="cnt">${dispCount(d)} entidad(es)</div></div>
+      <div class="recs">${recsHtml}</div>
+    </div>`;
+}
+function openDetail(i){
+  cur=i;offInner.innerHTML=detailHTML(i);
+  scrim.classList.add('open');off.classList.add('open');off.scrollTop=0;document.body.style.overflow='hidden';
+  const dp=document.getElementById('dp'),dn=document.getElementById('dn');
+  dp.disabled=i===0;dn.disabled=i===DOCS.length-1;
+  dp.onclick=()=>openDetail(i-1);dn.onclick=()=>openDetail(i+1);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{root:off,threshold:.06});
+  off.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  requestAnimationFrame(()=>off.querySelectorAll('.reveal').forEach(el=>{if(el.getBoundingClientRect().top<innerHeight)el.classList.add('in')}));
+}
+function closeDetail(){scrim.classList.remove('open');off.classList.remove('open');document.body.style.overflow='';cur=-1;}
+/* accordion verbs */
+off.addEventListener('click',e=>{
+  const b=e.target.closest('.verb');if(!b)return;
+  const wrap=b.closest('.verbwrap');const k=b.dataset.k;
+  const acc=wrap.querySelector('.acc[data-k="'+k+'"]');const isOpen=acc.classList.contains('open');
+  wrap.querySelectorAll('.acc').forEach(a=>a.classList.remove('open'));
+  wrap.querySelectorAll('.verb').forEach(v=>v.classList.remove('active'));
+  if(!isOpen){acc.classList.add('open');b.classList.add('active');}
+});
+off.addEventListener('scroll',()=>{const p=off.scrollTop/(off.scrollHeight-off.clientHeight||1);document.getElementById('prog').style.width=(p*100)+'%';});
+document.addEventListener('keydown',e=>{
+  if(!off.classList.contains('open'))return;
+  if(e.key==='Escape')closeDetail();
+  if(e.key==='ArrowRight'&&cur<DOCS.length-1)openDetail(cur+1);
+  if(e.key==='ArrowLeft'&&cur>0)openDetail(cur-1);
+});
+
+/* ===== SPA navigation ===== */
+const MENU=document.querySelectorAll('.mitem');
+function navTo(id){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.toggle('active',s.id===id));
+  MENU.forEach(m=>m.classList.toggle('active',m.dataset.s===id));
+  if(id==='s-balance'){recompute(VIS);}
+  activateDynamics(document.getElementById(id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+MENU.forEach(m=>m.onclick=()=>navTo(m.dataset.s));
+document.querySelectorAll('.subtab').forEach(tb=>tb.onclick=()=>{
+  const sec=tb.closest('.slide');const k=tb.dataset.t;
+  sec.querySelectorAll('.subtab').forEach(x=>x.classList.toggle('active',x===tb));
+  sec.querySelectorAll('.subpanel').forEach(p=>p.classList.toggle('active',p.dataset.t===k));
+  if(k==='b1')recompute(VIS);
+  activateDynamics(sec);
+});
+
+/* ===== charts & dynamic timelines ===== */
+const CHARTS={
+ 'ch-viol':{type:'line',labels:['2023','2024','2025'],ymax:80,suffix:'%',series:[{name:'% con violencia',color:'#e1251b',data:[71.9,64.3,59.9]}]},
+ 'ch-act':{type:'bars',labels:['2023','2024','2025'],max:2600,series:[{name:'Supervisión preventiva',color:'#0a56a8',data:[1936,1958,2362]},{name:'Intermediación / mediación',color:'#12a45a',data:[323,479,529]}]},
+ 'ch-tipo':{type:'hbars',suffix:'%',max:60,items:[{label:'Socioambiental',value:48.7,color:'#0a56a8'},{label:'Demandas de gobierno',value:35,color:'#e1251b'},{label:'Otros',value:16.3,color:'#c47d00'}]},
+ 'ch-comp':{type:'hbars',suffix:'%',max:70,items:[{label:'Gobierno nacional',value:64.5,color:'#0a56a8'},{label:'Gob. regionales',value:24.9,color:'#12a45a'},{label:'Gob. locales',value:8.1,color:'#c47d00'},{label:'Org. autónomos',value:2.0,color:'#98a2b3'}]},
+ 'ch-viol2':{type:'line',labels:['2023','2024','2025','2026*'],ymax:80,suffix:'%',series:[{name:'% con violencia',color:'#e1251b',data:[71.9,64.3,59.9,57.4]}]},
+ 'ch-nuevos':{type:'bars',labels:['2023','2025'],max:90,series:[{name:'Conflictos nuevos',color:'#0a56a8',data:[28,81]}]},
+ 'ch-fall':{type:'bars',labels:['2023','2024','2025'],max:45,series:[{name:'Fallecidos',color:'#e1251b',data:[39,1,4]}]},
+ 'ch-her':{type:'bars',labels:['2023','2024','2025'],max:1400,series:[{name:'Heridos',color:'#c47d00',data:[1365,34,201]}]},
+ 'ch-pres':{type:'line',labels:['2023','2024','2025'],ymax:100,suffix:'%',series:[{name:'Presencia en diálogo',color:'#12a45a',data:[81.9,80.0,89.8]}]},
+ 'ch-socio':{type:'line',labels:['2023','2024','2025'],ymax:70,suffix:'%',series:[{name:'Socioambiental',color:'#12a45a',data:[60.6,55.1,46.2]}]},
+ 'ch-ugcs':{type:'hbars',suffix:'%',max:100,items:[{label:'Ministerios',value:53,color:'#0a56a8'},{label:'Gob. regionales',value:52,color:'#12a45a'},{label:'Municipalidades*',value:1,color:'#e1251b'}]},
+ 'ch-ugcsreg':{type:'bars',labels:['2022','2025'],max:25,series:[{name:'GR con unidad',color:'#12a45a',data:[8,13]}]}
+};
+const GAUGES={g1:{v:85,color:'#0a56a8'},g2:{v:40,color:'#12a45a'},g3:{v:100,color:'#0a56a8'}};
+const enc=s=>encodeURIComponent(s);
+function svgLine(cfg){
+ const W=340,H=196,pl=36,pr=14,pt=18,pb=26,iw=W-pl-pr,ih=H-pt-pb,n=cfg.labels.length;
+ const xs=i=>pl+(n===1?iw/2:iw*i/(n-1)),ys=v=>pt+ih-(v/cfg.ymax)*ih;
+ let g='';for(let k=0;k<=4;k++){const y=pt+ih*k/4;g+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="#e7ebf1"/><text x="${pl-6}" y="${y+3}" text-anchor="end" font-size="9" fill="#98a2b3">${Math.round(cfg.ymax*(1-k/4))}</text>`;}
+ let xl='';cfg.labels.forEach((l,i)=>xl+=`<text x="${xs(i)}" y="${H-8}" text-anchor="middle" font-size="9.5" fill="#5c6675">${l}</text>`);
+ let body='';cfg.series.forEach(s=>{
+   const ppts=s.data.map((v,i)=>`${xs(i)},${ys(v)}`).join(' ');
+   body+=`<polygon points="${pl},${pt+ih} ${ppts} ${xs(n-1)},${pt+ih}" fill="${s.color}" opacity="0" class="c-area"/>`;
+   body+=`<polyline points="${ppts}" fill="none" stroke="${s.color}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="c-line"/>`;
+   s.data.forEach((v,i)=>body+=`<circle cx="${xs(i)}" cy="${ys(v)}" r="0" fill="#fff" stroke="${s.color}" stroke-width="2.6" class="c-pt" data-tip="${enc(cfg.labels[i]+' · '+v+(cfg.suffix||''))}"/>`);
+ });
+ return `<svg viewBox="0 0 ${W} ${H}" class="csvg">${g}${xl}${body}</svg>`;
+}
+function svgBars(cfg){
+ const W=340,H=196,pl=36,pr=14,pt=22,pb=26,iw=W-pl-pr,ih=H-pt-pb,ng=cfg.labels.length,ns=cfg.series.length;
+ const gw=iw/ng,bw=Math.min(30,(gw*0.62)/ns);
+ let g='';for(let k=0;k<=4;k++){const y=pt+ih*k/4;g+=`<line x1="${pl}" y1="${y}" x2="${W-pr}" y2="${y}" stroke="#e7ebf1"/><text x="${pl-6}" y="${y+3}" text-anchor="end" font-size="9" fill="#98a2b3">${Math.round(cfg.max*(1-k/4))}</text>`;}
+ let bars='',xl='';
+ cfg.labels.forEach((l,gi)=>{const cx=pl+gw*gi+gw/2;xl+=`<text x="${cx}" y="${H-8}" text-anchor="middle" font-size="9.5" fill="#5c6675">${l}</text>`;
+   cfg.series.forEach((s,si)=>{const v=s.data[gi],bh=(v/cfg.max)*ih,x=cx-(ns*bw+(ns-1)*5)/2+si*(bw+5),y=pt+ih-bh;
+     bars+=`<rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="3" fill="${s.color}" class="c-bar" style="transform-box:fill-box;transform-origin:bottom;transform:scaleY(0)" data-tip="${enc(l+' · '+s.name+': '+v)}"/>`;});});
+ let leg='';cfg.series.forEach((s,i)=>leg+=`<rect x="${pl+i*92}" y="4" width="11" height="11" rx="3" fill="${s.color}"/><text x="${pl+i*92+16}" y="13.5" font-size="10" fill="#5c6675">${s.name}</text>`);
+ return `<svg viewBox="0 0 ${W} ${H}" class="csvg">${leg}${g}${xl}${bars}</svg>`;
+}
+function svgHBars(cfg){
+ const W=340,rh=36,H=cfg.items.length*rh+6;let rows='';
+ cfg.items.forEach((it,i)=>{const y=6+i*rh,bw=(it.value/cfg.max)*(W-150);
+   rows+=`<text x="0" y="${y+15}" font-size="11" fill="#39424f" font-weight="600">${it.label}</text>`;
+   rows+=`<rect x="120" y="${y+4}" width="${W-128}" height="15" rx="7.5" fill="#eef2f8"/>`;
+   rows+=`<rect x="120" y="${y+4}" width="${bw}" height="15" rx="7.5" fill="${it.color}" class="c-hbar" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0)" data-tip="${enc(it.label+': '+it.value+(cfg.suffix||''))}"/>`;
+   rows+=`<text x="${W-4}" y="${y+16}" text-anchor="end" font-size="12" font-weight="700" fill="${it.color}" style="font-family:Space Grotesk,monospace">${it.value}${cfg.suffix||''}</text>`;});
+ return `<svg viewBox="0 0 ${W} ${H}" class="csvg" style="height:${H}px;max-height:${H}px">${rows}</svg>`;
+}
+function svgGauge(cfg){const r=48,c=2*Math.PI*r;
+ return `<svg viewBox="0 0 120 120" class="gsvg"><circle cx="60" cy="60" r="${r}" fill="none" stroke="#e7ebf1" stroke-width="11"/>`
+  +`<circle cx="60" cy="60" r="${r}" fill="none" stroke="${cfg.color}" stroke-width="11" stroke-linecap="round" transform="rotate(-90 60 60)" stroke-dasharray="${c}" stroke-dashoffset="${c}" class="g-arc" data-off="${c*(1-cfg.v/100)}"/>`
+  +`<text x="60" y="68" text-anchor="middle" font-weight="700" font-size="27" fill="${cfg.color}" class="g-num" data-v="${cfg.v}" style="font-family:Space Grotesk,monospace">0%</text></svg>`;
+}
+function chartTips(el){el.querySelectorAll('[data-tip]').forEach(node=>{
+  node.addEventListener('mousemove',e=>{tip.innerHTML='<div class="tt">'+decodeURIComponent(node.dataset.tip)+'</div>';let x=e.clientX+16,y=e.clientY+16;if(x+280>innerWidth)x=e.clientX-296;tip.style.left=x+'px';tip.style.top=y+'px';tip.classList.add('on');});
+  node.addEventListener('mouseleave',()=>tip.classList.remove('on'));});}
+function buildChart(el){const cfg=CHARTS[el.id];if(!cfg)return;
+ el.innerHTML=cfg.type==='line'?svgLine(cfg):cfg.type==='bars'?svgBars(cfg):svgHBars(cfg);
+ requestAnimationFrame(()=>{
+   el.querySelectorAll('.c-line').forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L;p.getBoundingClientRect();p.style.transition='stroke-dashoffset 1.3s ease';p.style.strokeDashoffset=0;});
+   el.querySelectorAll('.c-area').forEach(a=>{a.style.transition='opacity 1s ease .35s';a.style.opacity='.12';});
+   el.querySelectorAll('.c-pt').forEach((c,i)=>{c.style.transition='r .35s ease';setTimeout(()=>c.setAttribute('r','4'),420+i*110);});
+   el.querySelectorAll('.c-bar').forEach((b,i)=>{b.style.transition='transform .85s cubic-bezier(.2,.8,.2,1) '+(i*90)+'ms';b.style.transform='scaleY(1)';});
+   el.querySelectorAll('.c-hbar').forEach((b,i)=>{b.style.transition='transform .95s cubic-bezier(.2,.8,.2,1) '+(i*100)+'ms';b.style.transform='scaleX(1)';});
+ });
+ chartTips(el);
+}
+function buildGauge(el){const cfg=GAUGES[el.id];if(!cfg)return;el.innerHTML=svgGauge(cfg);
+ requestAnimationFrame(()=>{const a=el.querySelector('.g-arc');a.style.transition='stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)';a.style.strokeDashoffset=a.dataset.off;
+   const num=el.querySelector('.g-num');let v=+num.dataset.v,n=0,st=Math.max(1,Math.ceil(v/40));const tt=setInterval(()=>{n+=st;if(n>=v){n=v;clearInterval(tt)}num.textContent=n+'%';},28);});}
+const EXPLORERS={
+ 'exp-casos':[
+   {ico:'🛢️',name:'Derrame Repsol — Ventanilla',meta:'2023 · Callao / Lima',tag:{t:'Compensación',c:'navy'},title:'Trato justo para más de 1 900 afectados',body:'Rol garante en los procesos de compensación económica. Entre setiembre y noviembre de 2023 se contuvo el reinicio de protestas y se concretaron reuniones de negociación decisivas que garantizaron un trato justo para asociaciones que representaban a más de <b>1 900 afectados</b>. Se oficializó la participación defensorial en la mesa de diálogo y se exhortó al MINEM a modificar el marco normativo para asegurar reparaciones integrales con participación del Estado.'},
+   {ico:'🌳',name:'Lote 95 Bretaña — Petrotal',meta:'2023 · Loreto',tag:{t:'Mediación',c:'navy'},title:'Reactivación de la Mesa Técnica y paz social',body:'Ante la paralización del diálogo y medidas de fuerza en la Amazonía, la institución intercedió para reactivar la Mesa Técnica. Frente a un nuevo pico de tensiones en junio de 2023, un rápido despliegue de supervisión in situ permitió deponer las medidas de fuerza. El acompañamiento garante restableció la paz social y derivó, en agosto de 2023, en el reglamento del «Fondo de Desarrollo para el Distrito de Puinahua», que asegura financiamiento para <b>18 localidades</b> mediante el 2.5% del valor de la producción fiscalizada.'},
+   {ico:'⛏️',name:'REINFO — Formalización minera',meta:'2025 · Nacional / Arequipa',tag:{t:'Orden público',c:'red'},title:'Corredores humanitarios y uso proporcional de la fuerza',body:'Ante el bloqueo de la Panamericana Sur por la exclusión de más de <b>50 000 mineros</b> del REINFO, los comisionados se desplegaron directamente en los puntos de conflicto. Se supervisó el uso estrictamente proporcional de la fuerza por parte de la Policía Nacional del Perú, se gestionaron corredores humanitarios y se encauzó la crisis mediante la instalación de mesas de trabajo con dirigentes y la PCM.'},
+   {ico:'🎓',name:'Toma del campus UNMSM',meta:'2025 · Lima Metropolitana',tag:{t:'Mediación',c:'navy'},title:'Liberación pacífica del recinto universitario',body:'Frente a la radicalización de la protesta estudiantil, la institución ejerció un rol mediador decisivo en la mesa de diálogo del 13 de septiembre. La intervención garantizó la <b>liberación pacífica</b> del recinto universitario, salvaguardó la integridad física de todas las partes durante la entrega de las instalaciones y logró que se ratificara la anulación de cobros irregulares para segundas carreras.'},
+   {ico:'🚠',name:'Ruta Hiram Bingham — Consettur',meta:'2025 · Cusco',tag:{t:'Mediación',c:'amber'},title:'Dos treguas para el servicio a Machu Picchu',body:'Ante el riesgo inminente de paralización del servicio turístico hacia Machu Picchu por incertidumbre jurídica, la Defensoría lideró un complejo proceso de mediación. La actuación consolidó <b>dos treguas estratégicas</b> con la comunidad de San Antonio de Torontoy, desescalando la conflictividad social en una de las zonas económicas más sensibles del país.'}
+ ],
+ 'exp-escenarios':[
+   {ico:'🕊️',name:'A · Contención',meta:'Probabilidad media-alta',tag:{t:'Base / más probable',c:'green'},title:'La tendencia de desescalamiento se prolonga',body:'La conflictividad se mantiene alta en número pero <b>contenida en violencia</b>, prolongando la tendencia de desescalamiento. Las protestas continúan (~2 500–3 000 al año) sin derivar en víctimas masivas. El sistema de alerta temprana y el acompañamiento defensorial —con presencia garante en el 95.6% de las mesas activas— actúa como amortiguador. Requiere que el gobierno mantenga canales de diálogo abiertos y dé señales tempranas en el REINFO y en el cumplimiento de acuerdos. <b>El principal desafío es de gestión, no de contención de crisis.</b>'},
+   {ico:'⚠️',name:'B · Repunte sectorial',meta:'Probabilidad media',tag:{t:'Intermedio',c:'amber'},title:'Uno o dos frentes escalan de forma localizada',body:'Típicamente la minería informal combinada con el corredor minero del sur andino o con el descontento urbano por seguridad. Se producen bloqueos prolongados de vías, paros regionales y un número acotado de heridos, <b>sin llegar a una crisis nacional</b>. Se activa si el cierre o la prórroga del REINFO se maneja sin diálogo previo, o si un incumplimiento de acuerdos de alto perfil reactiva conflictos latentes. El impacto es económico y de gobernabilidad regional, pero <b>manejable con intervención oportuna</b>.'},
+   {ico:'🔥',name:'C · Crisis nacional',meta:'Probabilidad baja · impacto muy alto',tag:{t:'Crítico',c:'red'},title:'Ola de protestas simultáneas a nivel nacional',body:'Convergen un detonante político-nacional (cuestionamiento a la legitimidad del gobierno, tensión entre poderes o el ciclo electoral) con el malestar socioeconómico y la minería informal. El resultado es una ola de protestas simultáneas, con bloqueos masivos y riesgo de víctimas, al estilo de diciembre de 2022 y octubre de 2025. La violencia letal en el Perú no proviene de la conflictividad socioambiental ordinaria, sino de estas crisis políticas. <b>Es de baja frecuencia pero de consecuencias severas, y exige un protocolo de respuesta preparado de antemano.</b>'}
+ ]
+};
+function showExp(el,it){
+ const d=el.querySelector('.exp-detail');
+ d.querySelector('.dic').textContent=it.ico;
+ const tag=d.querySelector('.exp-tag');tag.className='exp-tag '+it.tag.c;tag.textContent=it.tag.t;
+ d.querySelector('.dt').innerHTML=it.title;
+ d.querySelector('.db').innerHTML=it.body;
+ d.classList.remove('fadeswap');void d.offsetWidth;d.classList.add('fadeswap');
+}
+function buildExplorer(el){
+ const items=EXPLORERS[el.id];if(!items)return;
+ el.innerHTML='<div class="exp-list"></div><div class="exp-detail"><div class="dtop"><div class="dic"></div><span class="exp-tag"></span></div><div class="dt"></div><div class="db"></div></div>';
+ const list=el.querySelector('.exp-list');
+ items.forEach((it,i)=>{const tl=document.createElement('div');tl.className='exp-tile'+(i===0?' active':'');
+   tl.innerHTML='<span class="ei">'+it.ico+'</span><div><div class="en">'+it.name+'</div><div class="em">'+it.meta+'</div></div>';
+   tl.onclick=()=>{el.querySelectorAll('.exp-tile').forEach(x=>x.classList.remove('active'));tl.classList.add('active');showExp(el,it);};
+   list.appendChild(tl);});
+ showExp(el,items[0]);
+}
+function activateDynamics(root){const R=root||document;
+ R.querySelectorAll('.explorer').forEach(el=>{if(el.dataset.drawn||el.offsetParent===null)return;buildExplorer(el);el.dataset.drawn='1';});
+ R.querySelectorAll('.chart').forEach(el=>{if(el.offsetParent===null)return;buildChart(el);});
+ R.querySelectorAll('.gauge').forEach(el=>{if(el.offsetParent===null)return;buildGauge(el);});
+ R.querySelectorAll('.timeline').forEach(tl=>{if(tl.offsetParent===null)return;tl.classList.remove('run');void tl.offsetWidth;tl.classList.add('run');[...tl.querySelectorAll('.tev')].forEach((e,i)=>e.style.animationDelay=(i*0.16)+'s');});
+}
+
+/* ===== init ===== */
+document.querySelectorAll('.subpanel').forEach(sp=>sp.addEventListener('scroll',()=>{const p=sp.scrollTop/(sp.scrollHeight-sp.clientHeight||1);document.getElementById('prog').style.width=(p*100)+'%';}));
+window.addEventListener('load',()=>{ setTimeout(()=>{recompute(DOCS);activateDynamics(document);},400); });
+</script>
+</body>
+</html>
