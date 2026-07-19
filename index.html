@@ -323,6 +323,39 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
 .alvl h4{font-family:'Sora';font-size:14px;margin-bottom:3px}
 .alvl p{font-size:12px;color:var(--mut);line-height:1.5}
 .aconn{height:14px;width:2px;background:var(--line);margin:-6px 0 -6px 39px}
+/* ===== SINAGECOS pyramid ===== */
+.sg-wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:22px;margin-top:20px;align-items:stretch}
+.sg-pyr{position:relative;border:1px solid var(--gbrd);border-radius:22px;padding:22px 26px 26px;background:linear-gradient(180deg,rgba(232,241,251,.55),var(--glass));box-shadow:var(--sh);display:flex;flex-direction:column;align-items:center}
+.sg-rlabel{position:absolute;left:14px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-family:'Space Grotesk';font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);opacity:.7}
+.sg-apex{position:relative;z-index:2;width:64%;border:0;cursor:pointer;border-radius:16px;padding:14px 18px;color:#fff;background:linear-gradient(135deg,var(--red),#b41b13);box-shadow:0 12px 26px rgba(225,37,27,.32);text-align:center;transition:.28s cubic-bezier(.2,.7,.2,1)}
+.sg-apex .sg-crown{font-size:16px;line-height:1;margin-bottom:5px}
+.sg-apex .sg-nm{font-family:'Sora';font-weight:700;font-size:14px;letter-spacing:.2px}
+.sg-apex .sg-rol{font-size:10px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;opacity:.88;margin-top:3px}
+.sg-stem{width:2.5px;height:20px;background:linear-gradient(var(--red),var(--blue));z-index:1}
+.sg-tiers{width:100%;display:flex;flex-direction:column;gap:7px;align-items:center}
+.sg-tier{position:relative;border:0;cursor:pointer;color:#fff;padding:13px 10px 15px;text-align:center;background:linear-gradient(135deg,#2f7bc4,var(--blue));box-shadow:0 8px 20px rgba(10,86,168,.22);transition:.28s cubic-bezier(.2,.7,.2,1)}
+.sg-tier.t1{width:60%;clip-path:polygon(15% 0,85% 0,94% 100%,6% 100%)}
+.sg-tier.t2{width:80%;clip-path:polygon(11% 0,89% 0,95% 100%,5% 100%);background:linear-gradient(135deg,#1f6ab8,var(--blue-d))}
+.sg-tier.t3{width:100%;clip-path:polygon(8% 0,92% 0,100% 100%,0 100%);background:linear-gradient(135deg,#12a45a,#0c7a41)}
+.sg-tier .sg-code{font-family:'Space Grotesk';font-weight:700;font-size:11px;letter-spacing:.6px;opacity:.9}
+.sg-tier .sg-t{font-family:'Sora';font-weight:600;font-size:13px;margin-top:1px}
+.sg-node:hover{transform:translateY(-3px);filter:brightness(1.05)}
+.sg-node.active{transform:translateY(-3px) scale(1.015);filter:drop-shadow(0 10px 22px rgba(16,42,80,.28)) brightness(1.06);outline:2.5px solid rgba(255,255,255,.9);outline-offset:-2.5px}
+.sg-apex.active{outline:2.5px solid #fff}
+.sg-detail{border:1px solid var(--gbrd);border-radius:22px;padding:24px 26px;background:var(--glass);backdrop-filter:blur(14px) saturate(150%);box-shadow:var(--sh);display:flex;flex-direction:column}
+.sg-dtag{display:inline-flex;align-self:flex-start;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:12px}
+.sg-dtag.dp{color:var(--red);background:var(--red-l);border:1px solid #f6c9c4}
+.sg-dtag.na{color:var(--blue);background:var(--blue-l);border:1px solid #cfe0f4}
+.sg-dtag.re{color:var(--blue-d);background:var(--blue-l);border:1px solid #cfe0f4}
+.sg-dtag.op{color:var(--grn);background:var(--grn-l);border:1px solid #b8e6cb}
+.sg-dttl{font-family:'Sora';font-weight:700;font-size:19px;line-height:1.25;color:var(--ink)}
+.sg-dlead{font-size:12.5px;color:var(--mut);line-height:1.55;margin:8px 0 16px}
+.sg-row{border-top:1px solid var(--line);padding:11px 0;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start}
+.sg-row .sg-k{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--mut2);padding-top:2px}
+.sg-row .sg-v{font-size:12.5px;color:#2a3340;line-height:1.5}
+.sg-row .sg-v b{color:var(--blue-d)}
+.sg-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.sg-chip{font-size:11px;font-weight:600;padding:5px 11px;border-radius:20px;background:var(--blue-l);border:1px solid #cfe0f4;color:var(--blue)}
 .scen{border:1px solid var(--gbrd);border-top:5px solid var(--mut2);border-radius:20px;padding:24px 26px;background:var(--glass);box-shadow:var(--sh);transition:.3s}
 .scen:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
 .scen.a{border-top-color:var(--grn)}.scen.b{border-top-color:var(--amb)}.scen.c{border-top-color:var(--red)}
@@ -472,14 +505,14 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
       <p class="slidesub">Consolidación de la labor defensorial 2023–2025: mandato, evolución institucional, supervisiones y casos emblemáticos de intervención.</p>
     </div>
     <div class="subtabs">
-      <button class="subtab active" data-t="a1"><span class="st-n">1.1</span>Indicadores</button>
-      <button class="subtab" data-t="a2"><span class="st-n">1.2</span>Evolución institucional</button>
+      <button class="subtab active" data-t="a2"><span class="st-n">1.1</span>Evolución institucional</button>
+      <button class="subtab" data-t="a1"><span class="st-n">1.2</span>Indicadores</button>
       <button class="subtab" data-t="a3"><span class="st-n">1.3</span>Supervisiones</button>
       <button class="subtab" data-t="a4"><span class="st-n">1.4</span>Casos emblemáticos</button>
     </div>
   </div>
 
-  <div class="subpanel active" data-t="a1"><div class="subbox">
+  <div class="subpanel" data-t="a1"><div class="subbox">
     <div class="ch"><span class="cn">1.1.1</span>Salvaguarda de la vida y desescalamiento</div>
     <div class="metrics">
       <div class="metric g"><span class="fl"><span class="arrow dn">▼</span> 39 → 4</span><span>Víctimas fatales en conflictos (2023 → 2025)</span></div>
@@ -490,14 +523,14 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
     <div class="grid2" style="margin-top:14px">
       <div class="gcard"><h4>Víctimas fatales en conflictos</h4><div class="chart" id="ch-fall"></div></div>
       <div class="gcard"><h4>Personas heridas en conflictos</h4><div class="chart" id="ch-her"></div></div>
-      <div class="gcard"><h4>Conflictos con hechos de violencia (%)</h4><div class="chart" id="ch-viol"></div></div>
+      <div class="gcard"><h4>Conflictos con hechos de violencia</h4><div class="gsub">Con al menos 1 hecho de violencia · 71.9% → 64.3% → 59.9%</div><div class="chart" id="ch-viol"></div></div>
       <div class="gcard"><h4>Presencia de la Defensoría en mesas de diálogo</h4><div class="gsub">Cobertura 82% → 80% → 90% · repunte sostenido desde 2024</div><div class="chart" id="ch-pres"></div></div>
     </div>
     <div class="ch"><span class="cn">1.1.2</span>Capacidad operativa y preventiva</div>
     <div class="metrics">
       <div class="metric"><b>2 933</b><span>Intervenciones defensoriales en 2025 · <b class="arrow up">+14%</b> vs. 2023 (récord desde 2018)</span></div>
       <div class="metric"><span class="fl"><span class="arrow up">+22%</span> 1936 → 2362</span><span>Supervisión preventiva</span></div>
-      <div class="metric"><span class="fl"><span class="arrow up">+64%</span> 323 → 529</span><span>Intermediación y mediación</span></div>
+      <div class="metric"><span class="fl"><span class="arrow up">+64%</span> 323 → 529</span><span>Mediación</span></div>
     </div>
     <div class="gcard" style="margin-top:14px"><h4>Actuaciones defensoriales por año · preventiva vs. mediación</h4><div class="chart" id="ch-act"></div></div>
     <div class="ch"><span class="cn">1.1.3</span>Composición de la conflictividad</div>
@@ -508,7 +541,7 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
     <div class="gcard" style="margin-top:14px"><h4>Peso de conflictos socioambientales (%)</h4><div class="chart" id="ch-socio"></div></div>
   </div></div>
 
-  <div class="subpanel" data-t="a2"><div class="subbox">
+  <div class="subpanel active" data-t="a2"><div class="subbox">
     <p class="blocklead">Consolidación estratégica reciente: del hito normativo de la Ley N.° 32028 y la reestructuración operativa (2024) a la estandarización defensorial y la transformación tecnológica (2025).</p>
     <div class="timeline">
       <div class="tev"><div class="ty">2024 · Hito normativo y reestructuración</div><ul>
@@ -527,9 +560,8 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
 
   <div class="subpanel" data-t="a3"><div class="subbox">
     <p class="blocklead">La supervisión es la vía principal de actuación de la Adjuntía para garantizar el cumplimiento de las obligaciones del Estado. En el trienio 2023–2025 se ejerció mediante dos enfoques complementarios de alto impacto.</p>
-    <div class="grid2" style="margin-top:22px">
+    <div style="margin-top:22px">
       <div class="gcard"><h4><span class="ic">◉</span>Control in situ en crisis</h4><p>Supervisión directa de la actuación gubernamental durante coyunturas de crisis, verificando el respeto de los derechos fundamentales en el terreno.</p></div>
-      <div class="gcard"><h4><span class="ic">▤</span>Evaluación de capacidades</h4><p>Diagnóstico de la capacidad institucional del Estado para gestionar la conflictividad social en los tres niveles de gobierno.</p></div>
     </div>
     <div class="ch"><span class="cn">Caso</span>Informe Defensorial N.° 001-2023-DP/APCSG</div>
     <div class="gcard"><p>A pocas semanas del inicio de la actual gestión, la institución enfrentó su primera prueba operativa con las movilizaciones del <b>19 de julio de 2023</b>. Se desplegó un operativo de gran escala movilizando a cerca de <b>300 comisionados</b> en todo el país, reflejando la capacidad de reacción inmediata ante riesgos críticos para los derechos ciudadanos.</p></div>
@@ -625,26 +657,44 @@ kbd{font-family:'Space Grotesk';border:1px solid var(--line);border-radius:6px;p
   <div class="subpanel" data-t="c2"><div class="subbox">
     <p class="blocklead">La Defensoría del Pueblo se proyecta a presentar ante el Congreso un proyecto de ley para crear el <b>Sistema Nacional de Prevención y Gestión de Conflictos Sociales (SINAGECOS)</b>, articulando en los tres niveles de gobierno la alerta preventiva, la mediación, la promoción del diálogo y el seguimiento de acuerdos.</p>
     <div class="ch"><span class="cn">Arquitectura</span>Diseño institucional del Sistema</div>
-    <div class="arch">
-      <div class="alvl rector"><div class="lv">Rector</div><div><h4>Defensoría del Pueblo · Ente Rector</h4><p>Rectoría reconocida por la Ley N.° 32028 en prevención, monitoreo y mediación.</p></div></div>
-      <div class="aconn"></div>
-      <div class="alvl"><div class="lv">01</div><div><h4>CONAGECOS · Consejo Nacional</h4><p>Máximo nivel de coordinación, presidido por el Defensor del Pueblo (PCM, Interior, Ministerio Público, PNP, ANGR y AMPE).</p></div></div>
-      <div class="aconn"></div>
-      <div class="alvl"><div class="lv">02</div><div><h4>COREGECOS · Consejos Regionales</h4><p>En cada región, el Callao y Lima Metropolitana, presididos por las Oficinas Defensoriales.</p></div></div>
-      <div class="aconn"></div>
-      <div class="alvl"><div class="lv">03</div><div><h4>Unidades de Gestión + SIRICS</h4><p>Fortalecimiento de las UGCS en ministerios, gobiernos regionales y locales, y creación del Sistema Integrado de Registro e Información (SIRICS).</p></div></div>
+    <p class="csub" style="margin-top:2px;margin-bottom:14px">La Defensoría del Pueblo encabeza el Sistema como ente rector. <b>Haz clic en cada nivel</b> para ver su estructura.</p>
+    <div class="sg-wrap" id="sgWrap">
+      <div class="sg-pyr">
+        <span class="sg-rlabel">Rectoría · Ley N.° 32028</span>
+        <button class="sg-node sg-apex active" data-k="dp">
+          <div class="sg-crown">♦</div>
+          <div class="sg-nm">Defensoría del Pueblo</div>
+          <div class="sg-rol">Ente Rector</div>
+        </button>
+        <div class="sg-stem"></div>
+        <div class="sg-tiers">
+          <button class="sg-node sg-tier t1" data-k="con"><span class="sg-code">01 · NACIONAL</span><div class="sg-t">CONAGECOS</div></button>
+          <button class="sg-node sg-tier t2" data-k="cor"><span class="sg-code">02 · REGIONAL</span><div class="sg-t">COREGECOS</div></button>
+          <button class="sg-node sg-tier t3" data-k="ugc"><span class="sg-code">03 · OPERATIVO</span><div class="sg-t">UGCS + SIRICS</div></button>
+        </div>
+      </div>
+      <div class="sg-detail" id="sgDetail"></div>
     </div>
-    <div class="ch"><span class="cn">Diagnóstico</span>Institucionalidad fragmentada (Informe N.° 279)</div>
-    <div class="metrics">
-      <div class="metric r"><b>52%</b><span>Gobiernos regionales con unidad formal de gestión de conflictos</span></div>
-      <div class="metric r"><b>53%</b><span>Ministerios analizados con unidad formalmente establecida</span></div>
-      <div class="metric a"><b>90 días</b><span>Plazo para instalar el CONAGECOS tras la vigencia de la norma</span></div>
-    </div>
-    <div class="grid2">
-      <div class="gcard"><h4>Entidades con unidad de gestión de conflictos (%)</h4><div class="chart" id="ch-ugcs"></div></div>
-      <div class="gcard"><h4>Gobiernos regionales con unidad · 2022 → 2025</h4><div class="chart" id="ch-ugcsreg"></div></div>
-    </div>
-    <p class="csub" style="margin-top:10px">* Supervisión Nacional 2025 (con apoyo del PNUD) a 1 935 entidades: 19 ministerios, 25 gobiernos regionales y 1 891 municipalidades.</p>
+    <script>
+    (function(){
+      var SG={
+        dp:{tag:'Ente Rector',cls:'dp',ttl:'Defensoría del Pueblo',lead:'Conduce y articula todo el Sistema en los tres niveles de gobierno, con enfoque preventivo y de derechos humanos.',rows:[['Base legal','Ley N.° 32028 — le otorga facultades expresas de <b>prevención, monitoreo y mediación</b>.'],['Rol','Ente rector del SINAGECOS; preside el CONAGECOS a través del Defensor del Pueblo.'],['Alcance','Nacional, regional y operativo.']],chips:['Prevención','Monitoreo','Mediación']},
+        con:{tag:'Nivel Nacional',cls:'na',ttl:'CONAGECOS · Consejo Nacional',lead:'Instancia de más alto nivel de coordinación estratégica del Sistema.',rows:[['Preside','<b>Defensor del Pueblo</b>'],['Integrantes','PCM · Ministerio del Interior · Ministerio Público · PNP · ANGR · AMPE'],['Sec. Técnica','Adjuntía para la Prevención y Gestión de Conflictos Sociales — a cargo del <b>SIRICS</b>.']],chips:['PCM','Interior','Min. Público','PNP','ANGR','AMPE']},
+        cor:{tag:'Nivel Regional',cls:'re',ttl:'COREGECOS · Consejos Regionales',lead:'Replican a escala regional la lógica articuladora del Consejo Nacional.',rows:[['Preside','<b>Oficinas Defensoriales</b>'],['Ámbito','Cada región, el Callao y Lima Metropolitana.'],['Función','Coordinación territorial de la prevención y gestión de conflictos.']],chips:['Regiones','Callao','Lima Metropolitana']},
+        ugc:{tag:'Nivel Operativo',cls:'op',ttl:'Unidades de Gestión (UGCS) + SIRICS',lead:'Ejecución en ministerios, gobiernos regionales y, de manera progresiva, gobiernos locales.',rows:[['Condiciones','Ubicación jerárquica, personal especializado, presupuesto e interoperabilidad de sistemas.'],['SIRICS','Sistema Integrado de Registro e Información de Conflictos Sociales — monitoreo en tiempo real, a cargo de la Secretaría Técnica del CONAGECOS.']],chips:['Ministerios','Gob. regionales','Gob. locales']}
+      };
+      var wrap=document.getElementById('sgWrap');if(!wrap)return;
+      var det=document.getElementById('sgDetail');
+      function render(k){var d=SG[k];var h='<span class="sg-dtag '+d.cls+'">'+d.tag+'</span><div class="sg-dttl">'+d.ttl+'</div><p class="sg-dlead">'+d.lead+'</p>';
+        d.rows.forEach(function(r){h+='<div class="sg-row"><span class="sg-k">'+r[0]+'</span><span class="sg-v">'+r[1]+'</span></div>';});
+        h+='<div class="sg-chips">';d.chips.forEach(function(c){h+='<span class="sg-chip">'+c+'</span>';});h+='</div>';
+        det.innerHTML=h;}
+      wrap.querySelectorAll('.sg-node').forEach(function(n){n.addEventListener('click',function(){
+        wrap.querySelectorAll('.sg-node').forEach(function(x){x.classList.remove('active');});
+        n.classList.add('active');render(n.dataset.k);});});
+      render('dp');
+    })();
+    </script>
     <p class="blocklead" style="margin-top:18px">La propuesta recoge experiencias previas (Sistema Nacional de Seguridad Ciudadana y de Justicia en Flagrancia) y representa un paso decisivo para superar la dispersión institucional, dotando al Estado de un sistema articulado, preventivo y con enfoque de derechos humanos.</p>
   </div></div>
 </section>
@@ -943,7 +993,7 @@ document.querySelectorAll('.subtab').forEach(tb=>tb.onclick=()=>{
 
 /* ===== charts & dynamic timelines ===== */
 const CHARTS={
- 'ch-viol':{type:'line',labels:['2023','2024','2025'],ymax:80,suffix:'%',series:[{name:'% con violencia',color:'#e1251b',data:[71.9,64.3,59.9]}]},
+ 'ch-viol':{type:'bars',labels:['2023','2024','2025'],max:300,series:[{name:'Total de conflictos',color:'#aebfd4',data:[249,272,277]},{name:'Con ≥1 hecho de violencia',color:'#e1251b',data:[179,175,166]}]},
  'ch-act':{type:'bars',labels:['2023','2024','2025'],max:2600,series:[{name:'Preventiva',color:'#0a56a8',data:[1936,1958,2362]},{name:'Mediación',color:'#12a45a',data:[323,479,529]}]},
  'ch-tipo':{type:'hbars',suffix:'%',max:60,items:[{label:'Socioambiental',value:48.7,color:'#0a56a8'},{label:'Demandas de gobierno',value:35,color:'#e1251b'},{label:'Otros',value:16.3,color:'#c47d00'}]},
  'ch-comp':{type:'hbars',suffix:'%',max:70,items:[{label:'Gobierno nacional',value:64.5,color:'#0a56a8'},{label:'Gob. regionales',value:24.9,color:'#12a45a'},{label:'Gob. locales',value:8.1,color:'#c47d00'},{label:'Org. autónomos',value:2.0,color:'#98a2b3'}]},
@@ -1023,7 +1073,7 @@ const EXPLORERS={
    {ico:'🚠',name:'Ruta Hiram Bingham — Consettur',meta:'2025 · Cusco',tag:{t:'Mediación',c:'amber'},title:'Dos treguas para el servicio a Machu Picchu',body:'Ante el riesgo inminente de paralización del servicio turístico hacia Machu Picchu por incertidumbre jurídica, la Defensoría lideró un complejo proceso de mediación. La actuación consolidó <b>dos treguas estratégicas</b> con la comunidad de San Antonio de Torontoy, desescalando la conflictividad social en una de las zonas económicas más sensibles del país.'}
  ],
  'exp-escenarios':[
-   {ico:'🕊️',name:'A · Contención',meta:'Probabilidad alta',tag:{t:'Base / más probable',c:'green'},detail:'Intensidad baja del conflicto · Alta probabilidad de ocurrencia',title:'La tendencia de desescalamiento se prolonga',body:'La conflictividad se mantiene alta en número pero <b>contenida en violencia</b>, prolongando la tendencia de desescalamiento. Las protestas continúan (~2 500–3 000 al año) sin derivar en una gran cantidad de heridos y fallecidos. El sistema de alerta temprana y el acompañamiento defensorial —con presencia garante en el 95.6% de las mesas activas— actúa como amortiguador. Requiere que el gobierno mantenga canales de diálogo abiertos y dé señales tempranas en el REINFO y en el cumplimiento de acuerdos. <b>El principal desafío es de gestión, no de contención de crisis.</b>'},
+   {ico:'🕊️',name:'A · Contención',meta:'Probabilidad alta',tag:{t:'Base / más probable',c:'green'},detail:'Intensidad baja del conflicto · Alta probabilidad de ocurrencia',title:'La tendencia de desescalamiento se prolonga',body:'La conflictividad se mantiene alta en número pero <b>contenida en violencia</b>, prolongando la tendencia de desescalamiento. Las protestas continúan (~2 500–3 000 al año) sin derivar en una gran cantidad de heridos y fallecidos. El sistema de alerta temprana y el acompañamiento defensorial —con presencia garante en el 95.6% de las mesas activas— actúa como amortiguador. Requiere que el gobierno mantenga canales de diálogo abiertos.'},
    {ico:'⚠️',name:'B · Repunte sectorial',meta:'Probabilidad media',tag:{t:'Intermedio',c:'amber'},detail:'Intensidad intermedia del conflicto · Baja o media probabilidad de ocurrencia',title:'Uno o dos frentes escalan de forma localizada',body:'Típicamente la minería informal combinada con el corredor minero del sur andino o con el descontento urbano por seguridad. Se producen bloqueos prolongados de vías, paros regionales y un número acotado de heridos, <b>sin llegar a una crisis nacional</b>. Se activa si el cierre o la prórroga del REINFO se maneja sin diálogo previo, o si un incumplimiento de acuerdos de alto perfil reactiva conflictos latentes. El impacto es económico y de gobernabilidad regional, pero <b>manejable con intervención oportuna</b>.'}
  ]
 };
